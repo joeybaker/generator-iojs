@@ -17,3 +17,5 @@ npm-debug.log
 .DS_Store
 
 test/
+
+CHANGELOG.*
