@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.7.3 | 2015-01-20
+* More readme cleanup
+
 ## v0.7.2 | 2015-01-20
 * Note that the changelog is generated too
 
@@ -31,6 +34,7 @@
 
 ### 0.0.0
 Init
+
 
 
 
