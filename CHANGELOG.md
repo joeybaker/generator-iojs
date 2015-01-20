@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.7.0 | 2015-01-20
+* link scripts
+* fix test
+* update npmignore
+* update readme
+* update npmignore
+* Now based off a fork of generator-node
+* Updated License.
+
 ## v0.3.1 | 2015-01-20
 * Add files key in package.json
 
@@ -16,6 +25,7 @@
 
 ### 0.0.0
 Init
+
 
 
 
