@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.7.5 | 2015-01-20
+* update npmignore
+
 ## v0.7.4 | 2015-01-20
 * Update scripts
 
@@ -37,6 +40,7 @@
 
 ### 0.0.0
 Init
+
 
 
 
