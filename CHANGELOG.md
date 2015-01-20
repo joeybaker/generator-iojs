@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.3.1 | 2015-01-20
+* Add files key in package.json
+
 ## v0.3.0 | 2015-01-20
 * 0.3.0
 * rename to generator-iojs
@@ -13,5 +16,6 @@
 
 ### 0.0.0
 Init
+
 
 
