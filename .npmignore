@@ -15,3 +15,5 @@ Gulpfile.js
 npm-debug.log
 
 .DS_Store
+
+CHANGELOG.*
