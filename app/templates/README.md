@@ -16,7 +16,7 @@
 ## Install
 
 ```sh
-$ npm install --save <%= slugname %>
+npm i -S <%= slugname %>
 ```
 
 
@@ -25,7 +25,7 @@ $ npm install --save <%= slugname %>
 ```js
 var <%= safeSlugname %> = require('<%= slugname %>')
 
-<%= slugname %>('Rainbow')
+<%= safeSlugname %>('Rainbow')
 ```
 
 ## Methods
