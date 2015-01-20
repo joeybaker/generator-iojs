@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.7.4 | 2015-01-20
+* Update scripts
+
 ## v0.7.3 | 2015-01-20
 * More readme cleanup
 
@@ -34,6 +37,7 @@
 
 ### 0.0.0
 Init
+
 
 
 
