@@ -13,7 +13,7 @@ test('iojs generator creation', function creationTest(t){
       t.error(err)
     }
 
-    this.app = helpers.createGenerator('node:app', [
+    this.app = helpers.createGenerator('iojs:app', [
       '../../app'
     ])
 
