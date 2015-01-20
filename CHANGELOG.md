@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.3.0 | 2015-01-20
+* 0.3.0
+* rename to generator-iojs
+
 ## v0.2.0 | 2015-01-20
 * table of contents update
 * npm ignore the changelog
@@ -9,4 +13,5 @@
 
 ### 0.0.0
 Init
+
 
