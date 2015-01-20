@@ -51,11 +51,11 @@
     "nsp": "^0.4.2",
     "prova": "^1.9.0"
   },
-  "name": "generator-node",
+  "name": "generator-iojs",
   "description": "A basic node module template, that includes handy git hooks and a release script",
   "repository": {
     "type": "git",
-    "url": "https://github.com/joeybaker/generator-node.git"
+    "url": "https://github.com/joeybaker/generator-iojs.git"
   },
   "keywords": [
     "yeoman-generator",
@@ -64,9 +64,9 @@
   ],
   "author": "Joey Baker <joey@byjoeybaker.com> (https://byjoeybaker.com)",
   "bugs": {
-    "url": "https://github.com/joeybaker/generator-node/issues"
+    "url": "https://github.com/joeybaker/generator-iojs/issues"
   },
-  "homepage": "https://github.com/joeybaker/generator-node",
+  "homepage": "https://github.com/joeybaker/generator-iojs",
   "dependencies": {
     "yeoman-generator": "^0.18.6"
   }

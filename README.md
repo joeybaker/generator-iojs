@@ -1,6 +1,6 @@
 # Yoeman Generator for Node projects
 
-[![NPM](https://nodei.co/npm/generator-node.png)](https://nodei.co/npm/generator-node/)  ![Depencency status](https://david-dm.org/joeybaker/generator-node.png)
+[![NPM](https://nodei.co/npm/generator-iojs.png)](https://nodei.co/npm/generator-iojs/)  ![Depencency status](https://david-dm.org/joeybaker/generator-iojs.png)
 
 A basic node module template, that includes handy git hooks and a release script
 
@@ -17,7 +17,7 @@ A basic node module template, that includes handy git hooks and a release script
 
 
 ## Install
-`npm install -g generator-node yo`
+`npm install -g generator-iojs yo`
 
 ## Usage
 ```sh
