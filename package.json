@@ -44,7 +44,7 @@
     "prova": "^1.9.0"
   },
   "name": "generator-iojs",
-  "description": "A basic node module template, that includes handy git hooks and a release script",
+  "description": "A basic node module template, that includes handy git hooks, a release script, and auto-changelog generation.",
   "repository": {
     "type": "git",
     "url": "https://github.com/joeybaker/generator-iojs.git"

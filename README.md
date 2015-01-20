@@ -2,7 +2,7 @@
 
 [![NPM](https://nodei.co/npm/generator-iojs.png)](https://nodei.co/npm/generator-iojs/)  ![Depencency status](https://david-dm.org/joeybaker/generator-iojs.png)
 
-A basic node module template, that includes handy git hooks and a release script
+A basic node module template, that includes handy git hooks, a release script, and auto-changelog generation.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
