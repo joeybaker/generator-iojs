@@ -1,4 +1,3 @@
-gulpfile.js
 .travis.yml
 test/*
 .editorconfig
@@ -9,13 +8,7 @@ test/*
 .jshint*
 .npmignore
 CONTRIBUTING.*
-Gulpfile.js
-
-
-npm-debug.log
-
-.DS_Store
-
-test/
-
 CHANGELOG.*
+scripts.sh
+npm-debug.log
+.DS_Store
