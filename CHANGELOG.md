@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.7.2 | 2015-01-20
+* Note that the changelog is generated too
+
 ## v0.7.1 | 2015-01-20
 * Update template readme
 
@@ -28,6 +31,7 @@
 
 ### 0.0.0
 Init
+
 
 
 
