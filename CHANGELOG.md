@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.7.1 | 2015-01-20
+* Update template readme
+
 ## v0.7.0 | 2015-01-20
 * link scripts
 * fix test
@@ -25,6 +28,7 @@
 
 ### 0.0.0
 Init
+
 
 
 
