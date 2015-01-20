@@ -1,97 +1,70 @@
-/*global describe, beforeEach, it */
 'use strict';
-var path = require('path');
-var assert = require('yeoman-generator').assert;
-var helpers = require('yeoman-generator').test;
-var shelljs = require('shelljs');
 
-describe('node generator', function () {
-  beforeEach(function (done) {
-    helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
-      if (err) {
-        done(err);
-        return;
-      }
+var path = require('path')
+  , assert = require('yeoman-generator').assert
+  , helpers = require('yeoman-generator').test
+  , test = require('prova')
 
-      this.app = helpers.createGenerator('node:app', [
-        '../../app'
-      ]);
-      this.app.options['skip-install'] = true;
-      done();
-    }.bind(this));
-  });
+test('iojs generator creation', function creationTest(t){
+  var runTests
 
-  it('creates expected files', function (done) {
+  helpers.testDirectory(path.join(__dirname, 'temp'), function testDirCreated(err){
+    if (err){
+      t.error(err)
+    }
+
+    this.app = helpers.createGenerator('node:app', [
+      '../../app'
+    ])
+
+    this.app.options['skip-install'] = true
+    runTests()
+  }.bind(this))
+
+  runTests = function runTests(){
+
     var expected = [
-      'index.js',
-      'cli.js',
-      'test/test.js',
-      '.gitignore',
-      '.jshintrc',
-      '.travis.yml',
-      '.editorconfig',
-      'Gruntfile.js',
-      'package.json',
-      'README.md'
-    ];
+      'package.json'
+      , '.editorconfig'
+      , '.gitignore'
+      , '.jscsrc'
+      , '.jshintrc'
+      , '.npmignore'
+      , '.npmrc'
+      , 'scripts.sh'
+      , '.travis.yml'
+      , 'README.md'
+      , 'CONTRIBUTING.md'
+      , 'CHANGELOG.md'
+      , 'LICENSE'
+    ]
 
     helpers.mockPrompt(this.app, {
-      'name': 'mymodule',
-      'description': 'awesome module',
-      'pkgName': false,
-      'license': 'MIT',
-      'homepage': 'http://yeoman.io',
-      'githubUsername': 'octocat',
-      'authorName': 'Octo Cat',
-      'authorEmail': 'octo@example.com',
-      'authorUrl': 'http://yeoman.io',
-      'keywords': 'keyword1,keyword2,keyword3',
-      'cli': true,
-      'browser': true
-    });
+      'name': 'mymodule'
+      , 'description': 'awesome module'
+      , 'pkgName': false
+      , 'license': 'Artistic 2.0'
+      , 'homepage': 'https://github.com'
+      , 'githubUsername': 'octocat'
+      , 'authorName': 'Octo Cat'
+      , 'authorEmail': 'octo@example.com'
+      , 'authorUrl': 'http://yeoman.io'
+      , 'keywords': 'keyword1,keyword2,keyword3'
+    })
 
-    shelljs.exec('npm install meow', {silent: true});
+    this.app.run({}, function appRun(){
+      t.doesNotThrow(
+        assert.file.bind(this, expected)
+        , 'generates all expected files'
+      )
 
-    this.app.run({}, function () {
-      assert.file(expected);
-      assert.fileContent('package.json', /"name": "mymodule"/);
-      assert.deepEqual(require('./temp/cli.js'), {});
-      done();
-    });
+      t.doesNotThrow(
+        assert.fileContent.bind(this, 'package.json', /"name": "mymodule"/)
+        , 'adds the module name to package.json'
+      )
 
-  });
+      t.end()
+    })
+  }.bind(this)
 
-  it('creates expected files without cli', function (done) {
-    var expected = [
-      'index.js',
-      'test/test.js',
-      '.gitignore',
-      '.jshintrc',
-      '.travis.yml',
-      'Gruntfile.js',
-      'package.json',
-      'README.md'
-    ];
-
-    helpers.mockPrompt(this.app, {
-      'name': 'mymodule',
-      'description': 'awesome module',
-      'pkgName': false,
-      'license': 'MIT',
-      'homepage': 'http://yeoman.io',
-      'githubUsername': 'octocat',
-      'authorName': 'Octo Cat',
-      'authorEmail': 'octo@example.com',
-      'authorUrl': 'http://yeoman.io',
-      'keywords': 'keyword1,keyword2,keyword3',
-      'cli': false,
-      'browser': true
-    });
-
-    this.app.run({}, function () {
-      assert.file(expected);
-      assert.fileContent('package.json', /"name": "mymodule"/);
-      done();
-    });
-  });
-});
+})

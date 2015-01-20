@@ -1,10 +1,12 @@
-/*global describe, beforeEach, it */
 'use strict';
-var assert  = require('assert');
 
-describe('node generator', function () {
-  it('can be imported without blowing up', function () {
-    var app = require('../app');
-    assert(app !== undefined);
-  });
-});
+var test = require('prova')
+  , app = require('../app')
+
+test('iojs generator', function generatorTest(t){
+  t.ok(
+    app !== undefined
+    , 'can be imported without blowing up'
+  )
+  t.end()
+})

@@ -1,4 +1,5 @@
 'use strict';
-module.exports = function (str) {
-  console.log(str || 'Rainbow');
-};
+
+exports.get = function get(str){
+  console.log(str || 'Rainbow')
+}

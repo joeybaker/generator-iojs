@@ -1,35 +1,77 @@
 {
-  "name": "generator-node",
   "version": "0.6.0",
-  "description": "Create a Node.js module",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test-browser": "prova -b -q -e -l chrome test/*.js",
+    "test": "prova test/*.js",
+    "tdd": "nodemon -x npm -i node_modules/ -- test",
+    "note1": "we can't have nice things. prepublish also runs on npm install https://github.com/npm/npm/issues/6394 in-publish hacks around this",
+    "prepublish": "in-publish && source ./scripts.sh && npm prune && npm run nsp && npm run gitPush || in-install",
+    "jscs": "jscs .",
+    "jshint": "jshint --reporter node_modules/jshint-stylish/stylish.js",
+    "lint": "npm run jshint && npm run jscs",
+    "requireGitClean": "source ./scripts.sh && git_require_clean_work_tree",
+    "nsp": "nsp audit-package",
+    "note2": "--no-verify skips the commit hook",
+    "dmn": "dmn gen -f . && if [[ $(git diff --shortstat 2> /dev/null | tail -n1) != '' ]]; then git add .npmignore && git commit --no-verify -m'update npmignore'; fi",
+    "doctoc": "doctoc README.md && if [ -f CONTRIBUTING.md ]; then doctoc CONTRIBUTING.md; fi && if [[ $(git diff --shortstat 2> /dev/null | tail -n1) != '' ]]; then git add README.md CONTRIBUTING.md && git commit --no-verify -m'table of contents update'; fi",
+    "gitPull": "git pull --rebase origin master",
+    "gitPush": "git push --follow-tags --no-verify",
+    "release": "source ./scripts.sh && npm run requireGitClean && npm run gitPull && npm run dmn && npm run doctoc && npm_release $@"
+  },
+  "main": "app",
+  "config": {
+    "notes": "important to correct the path of npm so that the git hook doesn't error",
+    "ghooks": {
+      "pre-commit": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm run lint",
+      "pre-push": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm run nsp && npm run dmn && npm run doctoc && npm test",
+      "update": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm install"
+    }
+  },
+  "license": "Artistic-2.0",
+  "devDependencies": {
+    "dmn": "^1.0.5",
+    "doctoc": "^0.7.1",
+    "ghooks": "^0.2.2",
+    "in-publish": "^1.1.1",
+    "jscs": "^1.7.3",
+    "jshint": "^2.5.8",
+    "jshint-stylish": "^1.0.0",
+    "nodemon": "^1.2.1",
+    "nsp": "^0.4.2",
+    "prova": "^1.9.0"
+  },
+  "name": "generator-iojs",
+  "description": "A basic node module template, that includes handy git hooks and a release script",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joeybaker/generator-iojs.git"
+  },
   "keywords": [
     "yeoman-generator",
+    "git hooks",
+    "npm release",
     "scaffold",
     "node",
     "module",
     "cli"
   ],
-  "author": "Yeoman team",
-  "main": "app",
-  "repository": "yeoman/generator-node",
-  "scripts": {
-    "test": "mocha --timeout 50000"
+  "author": "Joey Baker <joey@byjoeybaker.com> (https://byjoeybaker.com)",
+  "bugs": {
+    "url": "https://github.com/joeybaker/generator-iojs/issues"
   },
+  "homepage": "https://github.com/joeybaker/generator-iojs",
   "dependencies": {
     "npm-name": "^1.0.2",
-    "yeoman-generator": "^0.18.3"
-  },
-  "devDependencies": {
-    "grunt": "^0.4.5",
-    "mocha": "*",
-    "shelljs": "^0.3.0"
-  },
-  "engines": {
-    "node": ">=0.10.0",
-    "npm": ">=1.2.10"
+    "yeoman-generator": "^0.18.6"
   },
   "files": [
     "app"
   ],
-  "license": "MIT"
+  "engines": {
+    "node": "^0.10.0",
+    "npm": "^2.0.0"
+  }
 }
