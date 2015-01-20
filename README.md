@@ -10,15 +10,8 @@ A basic node module template, that includes handy git hooks and a release script
 
 - [Install](#install)
 - [Usage](#usage)
-- [Methods](#methods)
-- [Events](#events)
-  - [myEvent `(<String> myString)`](#myevent-string-mystring)
-- [Tests](#tests)
 - [Developing](#developing)
   - [Requirements](#requirements)
-- [TODO](#todo)
-- [Changelog](#changelog)
-  - [1.0.0](#100)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
