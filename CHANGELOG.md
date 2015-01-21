@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.7.9 | 2015-01-20
+* Add travis badge to readme
+
 ## v0.7.8 | 2015-01-20
 * run travis tests in iojs
 
@@ -49,6 +52,7 @@
 
 ### 0.0.0
 Init
+
 
 
 
