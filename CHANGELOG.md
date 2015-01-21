@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.7.8 | 2015-01-20
+* run travis tests in iojs
+
 ## v0.7.7 | 2015-01-20
 * Ensure git tags are pushed
 
@@ -46,6 +49,7 @@
 
 ### 0.0.0
 Init
+
 
 
 
