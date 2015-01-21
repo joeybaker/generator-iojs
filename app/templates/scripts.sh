@@ -92,5 +92,5 @@ function npm_release(){
     version="$1"
   fi
 
-  npm version $version && generate_git_changelog && git_ammend_tag && npm publish
+  npm version $version && generate_git_changelog && git_ammend_tag && npm run gitPush && npm publish
 }
