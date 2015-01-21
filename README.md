@@ -24,7 +24,9 @@ Here's what you get:
 - [Install](#install)
 - [Usage](#usage)
 - [Developing](#developing)
+- [Tests](#tests)
   - [Requirements](#requirements)
+- [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
