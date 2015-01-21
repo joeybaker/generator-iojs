@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.7.6 | 2015-01-20
+* Add benefits to the readme
+
 ## v0.7.5 | 2015-01-20
 * update npmignore
 
@@ -40,6 +43,7 @@
 
 ### 0.0.0
 Init
+
 
 
 
