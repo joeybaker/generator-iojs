@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.7.7 | 2015-01-20
+* Ensure git tags are pushed
+
 ## v0.7.6 | 2015-01-20
 * Add benefits to the readme
 
@@ -43,6 +46,7 @@
 
 ### 0.0.0
 Init
+
 
 
 
