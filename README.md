@@ -1,4 +1,4 @@
-# Yoeman Generator for Node projects
+# Yoeman Generator for Node projects [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
 
 [![NPM](https://nodei.co/npm/generator-iojs.png)](https://nodei.co/npm/generator-iojs/)  ![Depencency status](https://david-dm.org/joeybaker/generator-iojs.png)
 
@@ -42,6 +42,21 @@ To publish, run `npm run release -- [{patch,minor,major}]`
 
 _NOTE: you might need to `sudo ln -s /usr/local/bin/node /usr/bin/node` to ensure node is in your path for the git hooks to work_
 
+## Tests
+Tests are [prova](https://github.com/azer/prova), based on [tape](https://github.com/substack/tape). They can be run with `npm test`.
+
+Tests can be run in a loop with `npm run tdd`
+
 ### Requirements
 * **npm > 2.0.0** So that passing args to a npm script will work. `npm i -g npm`
 * **git > 1.8.3** So that `git push --follow-tags` will work. `brew install git`
+
+## License
+Artistic 2.0 © [<%= props.authorName %>](<%= props.authorUrl %>)
+
+[npm-url]: https://npmjs.org/package/generator-iojs
+[npm-image]: https://badge.fury.io/js/generator-iojs.svg
+[travis-url]: https://travis-ci.org/joeybaker/generator-iojs
+[travis-image]: https://travis-ci.org/joeybaker/generator-iojs.svg?branch=master
+[daviddm-url]: https://david-dm.org/joeybaker/generator-iojs.svg?theme=shields.io
+[daviddm-image]: https://david-dm.org/joeybaker/generator-iojs
