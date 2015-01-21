@@ -1,7 +1,5 @@
 # Yoeman Generator for Node projects [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
 
-[![NPM](https://nodei.co/npm/generator-iojs.png)](https://nodei.co/npm/generator-iojs/)  ![Depencency status](https://david-dm.org/joeybaker/generator-iojs.png)
-
 A basic node module template, that includes handy git hooks, a release script, and auto-changelog generation.
 
 Here's what you get:
