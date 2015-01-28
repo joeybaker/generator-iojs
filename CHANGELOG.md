@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.7.13 | 2015-01-27
+* Pin yeoman-generator version, latest breaks tests
+
 ## v0.7.12 | 2015-01-27
 * Fix finding last git tag
 
@@ -61,6 +64,7 @@
 
 ### 0.0.0
 Init
+
 
 
 
