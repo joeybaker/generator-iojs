@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.0 | 2015-01-28
+Using this across several projects already. It's stable enough to 1.0
+
+* Add script to update the template across dirs
+* remove Travis support for iojs again. It won’t support iojs until Feb 2 :(
+
 ## v0.7.13 | 2015-01-27
 * Pin yeoman-generator version, latest breaks tests
 
@@ -64,6 +70,7 @@
 
 ### 0.0.0
 Init
+
 
 
 
