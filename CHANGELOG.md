@@ -1,7 +1,7 @@
 # Changelog
 
 ## v0.7.9 | 2015-01-22
-* 0.7.9
+* 
 * table of contents update
 * Add travis badge to readme
 
@@ -57,6 +57,7 @@
 
 ### 0.0.0
 Init
+
 
 
 
