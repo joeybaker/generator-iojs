@@ -1,9 +1,13 @@
 # Changelog
 
-## v0.7.9 | 2015-01-22
-* 
-* table of contents update
-* Add travis badge to readme
+## v0.7.12 | 2015-01-27
+* Fix finding last git tag
+
+## v0.7.11 | 2015-01-27
+* Travis now supports iojs!
+
+## v0.7.10 | 2015-01-22
+* Travis doesn't support iojs yet :(
 
 ## v0.7.9 | 2015-01-20
 * Add travis badge to readme
@@ -57,6 +61,7 @@
 
 ### 0.0.0
 Init
+
 
 
 
