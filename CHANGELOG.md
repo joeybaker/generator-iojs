@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.1 | 2015-01-29
+* table of contents update
+* fix typo in readme
+
 ## v1.0.0 | 2015-01-28
 Using this across several projects already. It's stable enough to 1.0
 
@@ -70,6 +74,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
