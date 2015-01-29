@@ -51,8 +51,8 @@ Tests can be run in a loop with `npm run tdd`
 * **npm > 2.0.0** So that passing args to a npm script will work. `npm i -g npm`
 * **git > 1.8.3** So that `git push --follow-tags` will work. `brew install git`
 
-## License
-Artistic 2.0 © [<%= props.authorName %>](<%= props.authorUrl %>)
+# License
+Artistic 2.0 © [Joey Baker](https://byjoeybaker.com)
 
 [npm-url]: https://npmjs.org/package/generator-iojs
 [npm-image]: https://badge.fury.io/js/generator-iojs.svg
@@ -60,3 +60,4 @@ Artistic 2.0 © [<%= props.authorName %>](<%= props.authorUrl %>)
 [travis-image]: https://travis-ci.org/joeybaker/generator-iojs.svg?branch=master
 [daviddm-url]: https://david-dm.org/joeybaker/generator-iojs.svg?theme=shields.io
 [daviddm-image]: https://david-dm.org/joeybaker/generator-iojs
+
