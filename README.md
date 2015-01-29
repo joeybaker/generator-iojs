@@ -19,11 +19,11 @@ Here's what you get:
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
-- [Install](#install)
-- [Usage](#usage)
-- [Developing](#developing)
-- [Tests](#tests)
-  - [Requirements](#requirements)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Developing](#developing)
+  - [Tests](#tests)
+    - [Requirements](#requirements)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
