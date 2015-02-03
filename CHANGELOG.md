@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.1.0 | 2015-02-03
+* Install covert for code-coverage
+
 ## v1.0.1 | 2015-01-29
 * table of contents update
 * fix typo in readme
@@ -74,6 +77,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
