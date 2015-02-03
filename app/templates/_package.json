@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "test-browser": "prova -b -q -e -l chrome test/*.js",
-    "test": "prova test/*.js",
+    "test": "covert test/*.js",
     "tdd": "nodemon -x npm -i node_modules/ -- test",
     "note1": "we can't have nice things. prepublish also runs on npm install https://github.com/npm/npm/issues/6394 in-publish hacks around this",
     "prepublish": "in-publish && source ./scripts.sh && npm prune && npm run nsp && npm run gitPush || in-install",
@@ -47,6 +47,7 @@
   "main": "index.js",
   "browser": "index.js",
   "devDependencies": {
+    "covert": "^1.0.1",
     "dmn": "^1.0.5",
     "doctoc": "^0.7.1",
     "ghooks": "^0.2.2",

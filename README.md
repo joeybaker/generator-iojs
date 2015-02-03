@@ -10,7 +10,7 @@ Here's what you get:
 * auto-creates a `LICENSE`
 * auto-creates a `README.md` with a template that you can fill in
 * auto-creates a `.travis.yml` for easy CI
-* tests are auto-setup in tape, and it uses prova so you can do browser tests too
+* tests are auto-setup in `tape`, and it uses `prova` so you can do browser tests too. `covert` runs code-coverage.
 * auto-runs tests and linters before a `git push`, to ensure you can never push bad code
 * auto-runs the Node Security Project advisory list against installed node modules before a `git push` to make sure your project is always secure
 * adds a release script to automate the headache of releasing a new version. It auto-generates a changelog, runs the tests, bumps the version, pushes to github, and publishes to npm.
