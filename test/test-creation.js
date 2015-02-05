@@ -1,12 +1,14 @@
 'use strict';
 
 var path = require('path')
+  , test = require('tape')
   , assert = require('yeoman-generator').assert
   , helpers = require('yeoman-generator').test
-  , test = require('prova')
 
 test('iojs generator creation', function creationTest(t){
   var runTests
+
+  t.plan(2)
 
   helpers.testDirectory(path.join(__dirname, 'temp'), function testDirCreated(err){
     if (err){
@@ -14,7 +16,7 @@ test('iojs generator creation', function creationTest(t){
     }
 
     this.app = helpers.createGenerator('iojs:app', [
-      '../../app'
+      path.join(__dirname, '..', 'app')
     ])
 
     this.app.options['skip-install'] = true
@@ -63,7 +65,6 @@ test('iojs generator creation', function creationTest(t){
         , 'adds the module name to package.json'
       )
 
-      t.end()
     })
   }.bind(this)
 

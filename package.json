@@ -4,8 +4,8 @@
     "test": "test"
   },
   "scripts": {
-    "test-browser": "prova -b -q -e -l chrome test/*.js",
-    "test": "prova test/*.js",
+    "note0": "I dunno why, but tap-spec causes the tests to fail",
+    "test": "tape test/*.js",
     "tdd": "nodemon -x npm -i node_modules/ -- test",
     "note1": "we can't have nice things. prepublish also runs on npm install https://github.com/npm/npm/issues/6394 in-publish hacks around this",
     "prepublish": "in-publish && source ./scripts.sh && npm prune && npm run nsp && npm run gitPush || in-install",
@@ -32,6 +32,7 @@
   },
   "license": "Artistic-2.0",
   "devDependencies": {
+    "covert": "^1.0.1",
     "dmn": "^1.0.5",
     "doctoc": "^0.7.1",
     "ghooks": "^0.2.2",
@@ -41,7 +42,8 @@
     "jshint-stylish": "^1.0.0",
     "nodemon": "^1.2.1",
     "nsp": "^0.4.2",
-    "prova": "^1.9.0"
+    "tap-spec": "^2.2.0",
+    "tape": "^3.5.0"
   },
   "name": "generator-iojs",
   "description": "A basic node module template, that includes handy git hooks, a release script, and auto-changelog generation.",

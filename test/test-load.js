@@ -1,6 +1,6 @@
 'use strict';
 
-var test = require('prova')
+var test = require('tape')
   , app = require('../app')
 
 test('iojs generator', function generatorTest(t){
