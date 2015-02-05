@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.2.1 | 2015-02-05
+* Add docs around new tests
+
 ## v1.2.0 | 2015-02-05
 * Move to tape and smokestack in the template; prova just wasn't working
 * Move tests to tape
@@ -81,6 +84,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
