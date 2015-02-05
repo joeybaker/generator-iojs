@@ -37,9 +37,11 @@ Returns the string passed to it.
 Emitted when x happens. Passes `myString` which is a y.
 
 ## Tests
-Tests are [prova](https://github.com/azer/prova), based on [tape](https://github.com/substack/tape). They can be run with `npm test`.
+Tests are in [tape](https://github.com/substack/tape) and code coverage is run though [covert](https://github.com/substack/covert).
 
-Tests can be run in a loop with `npm run tdd`
+* `npm test` will run both server and browser tests
+* `npm run test-browser` and `npm run test-server` run their respective tests
+* `npm run tdd` will run the server tests on every file change.
 
 ## Developing
 To publish, run `npm run release -- [{patch,minor,major}]`
