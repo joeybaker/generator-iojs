@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.2.2 | 2015-02-21
+* Travis now runs against iojs and node 0.12
+
 ## v1.2.1 | 2015-02-05
 * Add docs around new tests
 
@@ -84,6 +87,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
