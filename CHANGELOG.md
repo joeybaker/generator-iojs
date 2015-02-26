@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.2.6 | 2015-02-26
+* npmignore yo generated files
+
 ## v1.2.5 | 2015-02-26
 * Okay, for real this, time default tests pass
 
@@ -96,6 +99,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
