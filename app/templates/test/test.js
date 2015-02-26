@@ -1,14 +1,19 @@
 'use strict';
+
 var test = require('tape')
-  , <%= safeSlugname %> = require('../')
+  , luceneEscapeQuery = require('../')
 
-test('<%= slugname %>#get', function getTest(t){
-  t.plan(1)
-  <%= safeSlugname %>.get()
+test('lucene-escape-query#get', function getTest(t){
+  t.plan(2)
 
-  t.equal(
-    true
-    , 'I was too lazy to write any tests. Shame on me.'
+  t.doesNotThrow(
+    luceneEscapeQuery.get
+    , 'does not throw'
+  )
+
+  t.ok(
+    'I was too lazy to write any tests. Shame on me.'
     , 'must have at least one test'
   )
 })
+
