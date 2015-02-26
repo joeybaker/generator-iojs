@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.2.5 | 2015-02-26
+* Okay, for real this, time default tests pass
+
 # v1.2.4 | 2015-02-26
 * tests pass by default now
 
@@ -93,6 +96,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
