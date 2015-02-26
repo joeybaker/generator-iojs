@@ -1,5 +1,8 @@
 # Changelog
 
+# v1.2.4 | 2015-02-26
+* tests pass by default now
+
 ## v1.2.3 | 2015-02-26
 * update test file to use tape #oops
 
@@ -90,6 +93,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
