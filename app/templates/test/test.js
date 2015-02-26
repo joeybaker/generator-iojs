@@ -3,9 +3,11 @@ var test = require('tape')
   , <%= safeSlugname %> = require('../')
 
 test('<%= slugname %>#get', function getTest(t){
-  <%= safeSlugname %>()
+  t.plan(1)
+  <%= safeSlugname %>.get()
+
   t.equal(
-    false
+    true
     , 'I was too lazy to write any tests. Shame on me.'
     , 'must have at least one test'
   )
