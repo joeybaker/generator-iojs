@@ -8,6 +8,7 @@ test/*
 .jshint*
 .npmignore
 .yo-rc.json
+.npmrc
 CONTRIBUTING.*
 CHANGELOG.*
 scripts.sh
