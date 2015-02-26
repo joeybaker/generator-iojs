@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.2.3 | 2015-02-26
+* update test file to use tape #oops
+
 ## v1.2.2 | 2015-02-21
 * Travis now runs against iojs and node 0.12
 
@@ -87,6 +90,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
