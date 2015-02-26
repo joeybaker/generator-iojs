@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.2.7 | 2015-02-26
+* npmigonore .npmrc
+
 ## v1.2.6 | 2015-02-26
 * npmignore yo generated files
 
@@ -99,6 +102,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
