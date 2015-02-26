@@ -1,5 +1,5 @@
 'use strict';
-var test = require('prova')
+var test = require('tape')
   , <%= safeSlugname %> = require('../')
 
 test('<%= slugname %>#get', function getTest(t){
