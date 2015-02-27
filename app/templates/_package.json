@@ -18,6 +18,7 @@
     "<%= keywords[i] %>"<% } %>
   ],
   "scripts": {
+    "start": "node index.js",
     "test-browser": "browserify -t coverify test/test.js | tap-closer | smokestack -b chrome | tap-spec",
     "test-server": "covert test/*.js | tap-spec",
     "test": "npm run test-server && npm run test-browser",
