@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.2.8 | 2015-02-27
+* Upgrade npm-name
+* Added `npm start` default
+
 ## v1.2.7 | 2015-02-26
 * npmigonore .npmrc
 
@@ -102,6 +106,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
