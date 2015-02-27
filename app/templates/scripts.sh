@@ -61,17 +61,21 @@ function generate_git_changelog(){
   if test -z "$version"; then
     local head="$HEAD$DATE"
     local changes=$(git log $GIT_LOG_OPTS --pretty="format:* %s%n" 2>/dev/null)
+  # the more common case, there's a version to git the changes betwen
   else
     local head="$HEAD$version | $DATE"
-    local changes=$(git log $GIT_LOG_OPTS --pretty="format:* %s%n" "$previous_version..$version" 2>/dev/null)
+    # tail to get remove the first line, which will always just be the version commit
+    # awk to remove empty lines
+    local changes=$(tail -n +2 <<< "$(git log $GIT_LOG_OPTS --pretty="format:* %s%n" "$previous_version..$version" 2>/dev/null)" | awk NF)
   fi
 
   local CHANGELOG=$(find_changelog_file)
 
+  echo "Editing $CHANGELOG"
   # insert the changes after the header (assumes markdown)
   # this shells out to node b/c I couldn't figure out how to do it with awk
   local tmp_changelog=/tmp/changelog
-  node -e "console.log(require('fs').readFileSync(process.argv[1]).toString().replace(/(#.*?\n\n)/, '\$1' + process.argv.slice(2).join('\n') + '\n\n'))" "$CHANGELOG $head $changes" > $tmp_changelog
+  node -e "console.log(require('fs').readFileSync(process.argv[1]).toString().replace(/(#.*?\n\n)/, '\$1' + process.argv.slice(2).join('\n') + '\n\n'))" "$CHANGELOG" "$head" "$changes" > $tmp_changelog
 
   # open the changelog in the editor for editing
   test -n "$EDITOR" && $EDITOR $tmp_changelog
