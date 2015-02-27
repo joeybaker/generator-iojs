@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.2.9 | 2015-02-27
+* Don’t add version commit to changelog
+* linted scripts
+
 ## v1.2.8 | 2015-02-27
 * Upgrade npm-name
 * Added `npm start` default
@@ -106,6 +110,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
