@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.3.0 | 2015-02-28
+* Replace jscs and jscs with eslint
+
 ## v1.2.9 | 2015-02-27
 * Don’t add version commit to changelog
 * linted scripts
@@ -110,6 +113,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
