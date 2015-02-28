@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 var path = require('path')
   , test = require('tape')
@@ -11,9 +11,7 @@ test('iojs generator creation', function creationTest(t){
   t.plan(2)
 
   helpers.testDirectory(path.join(__dirname, 'temp'), function testDirCreated(err){
-    if (err){
-      t.error(err)
-    }
+    if (err) t.error(err)
 
     this.app = helpers.createGenerator('iojs:app', [
       path.join(__dirname, '..', 'app')
@@ -29,8 +27,7 @@ test('iojs generator creation', function creationTest(t){
       'package.json'
       , '.editorconfig'
       , '.gitignore'
-      , '.jscsrc'
-      , '.jshintrc'
+      , '.eslintrc'
       , '.npmignore'
       , '.npmrc'
       , 'scripts.sh'

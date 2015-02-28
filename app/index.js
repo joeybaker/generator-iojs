@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 var path = require('path')
   , npmName = require('npm-name')
@@ -42,9 +42,7 @@ module.exports = yeoman.generators.Base.extend({
     }]
 
     this.prompt(prompts, function onPrompt(props){
-      if (props.pkgName){
-        return this.askForModuleName()
-      }
+      if (props.pkgName) return this.askForModuleName()
 
       this.slugname = this._.slugify(props.name)
       this.safeSlugname = this.slugname.replace(/-+([a-zA-Z0-9])/g, function safedTheSlugName(g){
@@ -102,12 +100,10 @@ module.exports = yeoman.generators.Base.extend({
     this.currentYear = (new Date()).getFullYear()
 
     this.prompt(prompts, function onPrompt(props){
-      if (props.githubUsername){
+      if (props.githubUsername)
         this.repoUrl = props.githubUsername + '/' + this.slugname
-      }
-      else {
+      else
         this.repoUrl = 'user/repo'
-      }
 
       this.keywords = props.keywords.split(',').map(function trimKeywords(el){
         return el.trim()
@@ -124,8 +120,7 @@ module.exports = yeoman.generators.Base.extend({
     this.template('_package.json', 'package.json')
     this.copy('editorconfig', '.editorconfig')
     this.copy('gitignore', '.gitignore')
-    this.copy('jscsrc', '.jscsrc')
-    this.copy('jshintrc', '.jshintrc')
+    this.copy('eslintrc', '.eslintrc')
     this.copy('npmignore', '.npmignore')
     this.copy('npmrc', '.npmrc')
     this.copy('scripts.sh', 'scripts.sh')

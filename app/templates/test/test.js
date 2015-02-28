@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 var test = require('tape')
   , luceneEscapeQuery = require('../')
@@ -16,4 +16,3 @@ test('lucene-escape-query#get', function getTest(t){
     , 'must have at least one test'
   )
 })
-
