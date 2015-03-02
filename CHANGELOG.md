@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.3.1 | 2015-03-01
+* Conform to eslintrc syntax for true/false, linter now… works.
+
 ## v1.3.0 | 2015-02-28
 * Replace jscs and jscs with eslint
 
@@ -113,6 +116,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
