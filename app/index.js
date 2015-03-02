@@ -20,23 +20,25 @@ module.exports = yeoman.generators.Base.extend({
     prompts = [{
       name: 'name'
       , message: 'Module Name'
-      , default: path.basename(process.cwd())
+      , 'default': path.basename(process.cwd())
     }
     , {
       type: 'confirm'
       , name: 'pkgName'
       , message: 'The name above already exists on npm, choose another?'
-      , default: true
+      , 'default': true
       , when: function when(answers){
-        var done = this.async()
+        var whenDone = this.async()
 
         npmName(answers.name, function gotNPMName(err, available){
+          if (err) throw err
+
           if (!available){
             done(true)
             return
           }
 
-          done(false)
+          whenDone(false)
         })
       }
     }]
@@ -60,7 +62,7 @@ module.exports = yeoman.generators.Base.extend({
     prompts = [{
       name: 'description'
       , message: 'Description'
-      , default: 'The best module ever.'
+      , 'default': 'The best module ever.'
     }
     , {
       name: 'homepage'
@@ -69,7 +71,7 @@ module.exports = yeoman.generators.Base.extend({
     , {
       name: 'license'
       , message: 'License'
-      , default: 'Artistic 2.0'
+      , 'default': 'Artistic 2.0'
       , store: true
     }
     , {

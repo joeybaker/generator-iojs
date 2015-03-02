@@ -5,7 +5,7 @@ var test = require('tape')
 
 test('iojs generator', function generatorTest(t){
   t.ok(
-    app !== undefined
+    typeof app !== 'undefined'
     , 'can be imported without blowing up'
   )
   t.end()

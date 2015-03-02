@@ -39,16 +39,16 @@ test('iojs generator creation', function creationTest(t){
     ]
 
     helpers.mockPrompt(this.app, {
-      'name': 'mymodule'
-      , 'description': 'awesome module'
-      , 'pkgName': false
-      , 'license': 'Artistic 2.0'
-      , 'homepage': 'https://github.com'
-      , 'githubUsername': 'octocat'
-      , 'authorName': 'Octo Cat'
-      , 'authorEmail': 'octo@example.com'
-      , 'authorUrl': 'http://yeoman.io'
-      , 'keywords': 'keyword1,keyword2,keyword3'
+      name: 'mymodule'
+      , description: 'awesome module'
+      , pkgName: false
+      , license: 'Artistic 2.0'
+      , homepage: 'https://github.com'
+      , githubUsername: 'octocat'
+      , authorName: 'Octo Cat'
+      , authorEmail: 'octo@example.com'
+      , authorUrl: 'http://yeoman.io'
+      , keywords: 'keyword1,keyword2,keyword3'
     })
 
     this.app.run({}, function appRun(){
