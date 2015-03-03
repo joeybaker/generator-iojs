@@ -102,10 +102,12 @@ module.exports = yeoman.generators.Base.extend({
     this.currentYear = (new Date()).getFullYear()
 
     this.prompt(prompts, function onPrompt(props){
-      if (props.githubUsername)
+      if (props.githubUsername){
         this.repoUrl = props.githubUsername + '/' + this.slugname
-      else
+      }
+      else {
         this.repoUrl = 'user/repo'
+      }
 
       this.keywords = props.keywords.split(',').map(function trimKeywords(el){
         return el.trim()
