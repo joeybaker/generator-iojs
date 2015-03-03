@@ -113,7 +113,7 @@
     "consistent-this": [1, "self"],
     "eol-last": 2,
     "func-names": 2,
-    "func-style": [2, "declaration"],
+    "func-style": [2, "expression"],
     "key-spacing": [2, {"beforeColon": 0, "afterColon": true}],
     "max-nested-callbacks": [2, 3],
 
