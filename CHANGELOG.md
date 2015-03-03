@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.3.2 | 2015-03-03
+* eslint: change func-style to expression
+* eslint: change curly to multi-line
+* eslint: disable no-unused-expressions
+
 ## v1.3.1 | 2015-03-01
 * Conform to eslintrc syntax for true/false, linter now… works.
 
@@ -116,6 +121,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
