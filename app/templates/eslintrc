@@ -82,7 +82,7 @@
     "no-self-compare": 2,
     "no-sequences": 2,
     "no-throw-literal": 2,
-    "no-unused-expressions": 2,
+    "no-unused-expressions": 0,
     "no-with": 2,
     "radix": 2,
     "vars-on-top": 2,
