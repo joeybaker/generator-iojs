@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.3.4 | 2015-03-11
+* rm babel-eslint. We can do this with eslint 0.16, and it was buggy
+
 ## v1.3.3 | 2015-03-11
 * Update eslint, add more es6 goodness
 
@@ -124,6 +127,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
