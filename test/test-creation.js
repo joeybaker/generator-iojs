@@ -22,7 +22,6 @@ test('iojs generator creation', function creationTest(t){
   }.bind(this))
 
   runTests = function runTests(){
-
     var expected = [
       'package.json'
       , '.editorconfig'
