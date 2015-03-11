@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.3.3 | 2015-03-11
+* Update eslint, add more es6 goodness
+
 ## v1.3.2 | 2015-03-03
 * eslint: change func-style to expression
 * eslint: change curly to multi-line
@@ -121,6 +124,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
