@@ -30,7 +30,6 @@
   },
   "license": "Artistic-2.0",
   "devDependencies": {
-    "babel-eslint": "^1.0.12",
     "covert": "^1.0.1",
     "dmn": "^1.0.5",
     "doctoc": "^0.7.1",
