@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.4.0 | 2015-03-17
+* Add react plugin to eslint rules
+* Loosening up some eslint rules
+* CHANGE: `npm run tdd-server` instead of just `npm run tdd`
+* update doctoc script to not fail if there's no CONTRIBUTING.md
+
 ## v1.3.4 | 2015-03-11
 * rm babel-eslint. We can do this with eslint 0.16, and it was buggy
 
@@ -127,6 +133,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
