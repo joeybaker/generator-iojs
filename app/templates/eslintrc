@@ -1,4 +1,7 @@
 {
+  "plugins": [
+    "react"
+  ],
   "ecmaFeatures": {
     "arrowFunctions": true,
     "binaryLiterals": true,
@@ -75,7 +78,7 @@
     "no-labels": 2,
     "no-lone-blocks": 2,
     "no-loop-func": 2,
-    "no-multi-spaces": 2,
+    "no-multi-spaces": 1,
     "no-multi-str": 2,
     "no-native-reassign": 2,
     "no-new": 2,
@@ -131,7 +134,7 @@
       }
     ],
     "comma-spacing": [
-      2,
+      1,
       {
         "before": 0,
         "after": true
@@ -152,7 +155,7 @@
       "expression"
     ],
     "key-spacing": [
-      2,
+      1,
       {
         "beforeColon": 0,
         "afterColon": true
@@ -209,11 +212,11 @@
       "never"
     ],
     "space-in-brackets": [
-      2,
+      1,
       "never"
     ],
     "space-in-parens": [
-      2,
+      1,
       "never"
     ],
     "space-infix-ops": 2,
@@ -233,6 +236,17 @@
         ]
       }
     ],
-    "wrap-regex": 0
+    "wrap-regex": 0,
+
+    "react/display-name": 1,
+    "react/jsx-uses-react": 1,
+    "react/jsx-uses-vars": 1,
+    "react/no-did-mount-set-state": 1,
+    "react/no-did-update-set-state": 1,
+    "react/no-multi-comp": 2,
+    "react/prop-types": 2,
+    "react/react-in-jsx-scope": 2,
+    "react/self-closing-comp": 1,
+    "react/wrap-multilines": 2
   }
 }
