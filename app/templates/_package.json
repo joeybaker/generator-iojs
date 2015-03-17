@@ -22,7 +22,7 @@
     "test-browser": "browserify -t coverify test/test.js | tap-closer | smokestack -b chrome | tap-spec",
     "test-server": "covert test/*.js | tap-spec",
     "test": "npm run test-server && npm run test-browser",
-    "tdd": "nodemon -x npm -i node_modules/ -- run test-server",
+    "tdd-server": "nodemon -x npm -i node_modules/ -- run test-server",
     "note1": "we can't have nice things. prepublish also runs on npm install https://github.com/npm/npm/issues/6394 in-publish hacks around this",
     "prepublish": "in-publish && source ./scripts.sh && npm prune && npm run nsp && npm run gitPush || in-install",
     "lint": "eslint .",
