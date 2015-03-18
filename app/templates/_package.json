@@ -53,6 +53,7 @@
     "dmn": "^1.0.5",
     "doctoc": "^0.7.1",
     "eslint": "^0.16.2",
+    "eslint-plugin-react": "^1.5.0",
     "ghooks": "^0.2.2",
     "in-publish": "^1.1.1",
     "nodemon": "^1.2.1",
