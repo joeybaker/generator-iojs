@@ -31,11 +31,8 @@ module.exports = yeoman.generators.Base.extend({
         var whenDone = this.async()
 
         npmName(answers.name, function gotNPMName(err, available){
-          if (err) throw err
-
-          if (!available){
-            done(true)
-            return
+          if (err || !available){
+            return void whenDone(true)
           }
 
           whenDone(false)
