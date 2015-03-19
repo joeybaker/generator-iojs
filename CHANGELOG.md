@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.4.1 | 2015-03-19
+* generator: fix npmName callback #oops
+* generator: fix: npm run tdd script
+* Unpin yeoman generator, turns out it was a bug in my code :|
+* eslint rule loosening
+* Actually install eslint-plugin-react #oops
+
 ## v1.4.0 | 2015-03-17
 * Add react plugin to eslint rules
 * Loosening up some eslint rules
@@ -133,6 +140,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
