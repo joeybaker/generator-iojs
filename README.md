@@ -34,7 +34,7 @@ Here's what you get:
 
 ## Usage
 ```sh
-yo node
+yo iojs
 ```
 
 ## Developing
