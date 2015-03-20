@@ -2,42 +2,12 @@
 
 var path = require('path')
   , test = require('tape')
-  , assert = require('yeoman-generator').assert
   , helpers = require('yeoman-generator').test
+  , fs = require('fs')
+  , testDir = path.join(__dirname, 'temp')
 
 test('iojs generator creation', function creationTest(t){
-  var runTests
-
-  t.plan(2)
-
-  helpers.testDirectory(path.join(__dirname, 'temp'), function testDirCreated(err){
-    if (err) t.error(err)
-
-    this.app = helpers.createGenerator('iojs:app', [
-      path.join(__dirname, '..', 'app')
-    ])
-
-    this.app.options['skip-install'] = true
-    runTests()
-  }.bind(this))
-
-  runTests = function runTests(){
-    var expected = [
-      'package.json'
-      , '.editorconfig'
-      , '.gitignore'
-      , '.eslintrc'
-      , '.npmignore'
-      , '.npmrc'
-      , 'scripts.sh'
-      , '.travis.yml'
-      , 'README.md'
-      , 'CONTRIBUTING.md'
-      , 'CHANGELOG.md'
-      , 'LICENSE'
-    ]
-
-    helpers.mockPrompt(this.app, {
+  var promptAnswers = {
       name: 'mymodule'
       , description: 'awesome module'
       , pkgName: false
@@ -48,20 +18,52 @@ test('iojs generator creation', function creationTest(t){
       , authorEmail: 'octo@example.com'
       , authorUrl: 'http://yeoman.io'
       , keywords: 'keyword1,keyword2,keyword3'
-    })
+    }
+    , runTests
 
-    this.app.run({}, function appRun(){
-      t.doesNotThrow(
-        assert.file.bind(this, expected)
-        , 'generates all expected files'
-      )
+  runTests = function runTests(){
+      var expected = [
+        'package.json'
+        , '.editorconfig'
+        , '.gitignore'
+        , '.eslintrc'
+        , '.npmignore'
+        , '.npmrc'
+        , 'scripts.sh'
+        , '.travis.yml'
+        , 'README.md'
+        , 'CONTRIBUTING.md'
+        , 'CHANGELOG.md'
+        , 'LICENSE'
+      ]
 
-      t.doesNotThrow(
-        assert.fileContent.bind(this, 'package.json', /"name": "mymodule"/)
-        , 'adds the module name to package.json'
-      )
+      // 3 assertations + the count of files we expect
+      t.plan(3 + expected.length)
 
-    })
-  }.bind(this)
+      fs.readdir(testDir, function filesInTestDir(err, files){
+        t.error(err, 'should be able to read the test dir')
 
+        expected.forEach(function forEachExpectedFile(file){
+          t.ok(
+            files.indexOf(file) > -1
+            , 'outputs ' + file
+          )
+        })
+
+      })
+
+      fs.readFile(path.join(testDir, 'package.json'), function readPackageJson(err, file){
+        t.error(err, 'should be able to read the package.json')
+        t.ok(
+           /"name": "mymodule"/.test(file.toString())
+          , 'adds the module name to package.json'
+        )
+      })
+
+    }
+
+  helpers.run(path.join(__dirname, '..', 'app', 'index.js'))
+    .inDir(testDir)
+    .withPrompt(promptAnswers)
+    .on('end', runTests)
 })
