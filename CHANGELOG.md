@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.4.2 | 2015-03-20
+* generator tests: fix for new (non-semver!) yeoman-generator
+* generator: hardlink eslintrc, actually runs eslint in dev
+* readme: Fix usage command
+* readme: Note that we're now using smokestack
+
 ## v1.4.1 | 2015-03-19
 * generator: fix npmName callback #oops
 * generator: fix: npm run tdd script
@@ -140,6 +146,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
