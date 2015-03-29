@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.5.0 | 2015-03-29
+* Move nsp check to travis fixes #1
+* Much simpler git_require_clean_work_tree
+
 ## v1.4.2 | 2015-03-20
 * generator tests: fix for new (non-semver!) yeoman-generator
 * generator: hardlink eslintrc, actually runs eslint in dev
@@ -146,6 +150,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
