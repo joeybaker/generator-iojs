@@ -5,7 +5,7 @@ node_js:
   - iojs
 
 script:
-  - "npm run lint && npm test"
+  - "npm run nsp && npm run lint && npm test"
 
 notifications:
   email: false

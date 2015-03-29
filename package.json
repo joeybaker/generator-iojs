@@ -8,7 +8,7 @@
     "test": "tape test/*.js",
     "tdd": "nodemon -x npm -i node_modules/ -i test/temp/ -- test",
     "note1": "we can't have nice things. prepublish also runs on npm install https://github.com/npm/npm/issues/6394 in-publish hacks around this",
-    "prepublish": "in-publish && source ./scripts.sh && npm prune && npm run nsp && npm run gitPush || in-install",
+    "prepublish": "in-publish && source ./scripts.sh && npm prune && npm run gitPush || in-install",
     "lint": "eslint .",
     "requireGitClean": "source ./scripts.sh && git_require_clean_work_tree",
     "nsp": "nsp audit-package",
@@ -24,7 +24,7 @@
     "notes": "important to correct the path of npm so that the git hook doesn't error",
     "ghooks": {
       "pre-commit": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm run lint",
-      "pre-push": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm run nsp && npm run dmn && npm run doctoc && npm test",
+      "pre-push": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm run dmn && npm run doctoc && npm test",
       "update": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm install"
     }
   },
