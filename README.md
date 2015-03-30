@@ -43,7 +43,7 @@ To publish, run `npm run release -- [{patch,minor,major}]`
 _NOTE: you might need to `sudo ln -s /usr/local/bin/node /usr/bin/node` to ensure node is in your path for the git hooks to work_
 
 ## Tests
-Tests are [prova](https://github.com/azer/prova), based on [tape](https://github.com/substack/tape). They can be run with `npm test`.
+Tests are in [tape](https://github.com/substack/tape). They can be run with `npm test`.
 
 Tests can be run in a loop with `npm run tdd`
 
