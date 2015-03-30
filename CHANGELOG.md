@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.5.1 | 2015-03-29
+* Update eslint-react-plugin
+
 ## v1.5.0 | 2015-03-29
 * Move nsp check to travis fixes #1
 * Much simpler git_require_clean_work_tree
@@ -150,6 +153,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
