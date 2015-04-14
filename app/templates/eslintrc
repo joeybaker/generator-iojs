@@ -26,8 +26,9 @@
     "jsx": true
   },
   "env": {
-    "browser": 2,
-    "node": 2
+    "browser": true,
+    "node": true,
+    "es6": true
   },
   "rules": {
     "no-comma-dangle": 2,
