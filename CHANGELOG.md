@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.5.2 | 2015-04-14
+* smarter `npm run lint`
+* eslint rule modifications
+* use slugname in generated test
+* Fix eslint env config
+* correct readme for rm prova
+
 ## v1.5.1 | 2015-03-29
 * Update eslint-react-plugin
 
@@ -153,6 +160,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
