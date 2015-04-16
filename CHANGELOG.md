@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.6.2 | 2015-04-15
+* bah… setting the engine doesn’t work
+
 ## v1.6.1 | 2015-04-15
 * put back lint and test checks before release
 
@@ -168,6 +171,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
