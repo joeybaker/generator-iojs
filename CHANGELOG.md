@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.6.0 | 2015-04-15
+* fixes crazy generator error that came from the better `npm run lint`
+* fixes for crazy undocumented yeoman changes
+* Update yeoman generator
+
 ## v1.5.2 | 2015-04-14
 * smarter `npm run lint`
 * eslint rule modifications
@@ -160,6 +165,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
