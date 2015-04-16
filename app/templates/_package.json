@@ -1,11 +1,9 @@
 {
   "version": "0.0.0",
   "name": "<%= slugname %>",
-  "description": "<%= props.description %>",
-<% if (props.homepage) { %>  "homepage": "<%= props.homepage %>",<% } %>
   "author": {
     "name": "<%= props.authorName %>",
-    "email": "<%= props.authorEmail %>"<% if (props.authorUrl) { %>,
+    "email": "<%= props.authorEmail %>"<% if (props.authorUrl) { %> ,
     "url": "<%= props.authorUrl %>"<% } %>
   },
   "repository": "<%= repoUrl %>",
@@ -14,8 +12,8 @@
     "test": "test"
   },
   "keywords": [
-    "<%= slugname %>"<% for (var i = 0; i < keywords.length; i++) { %>,
-    "<%= keywords[i] %>"<% } %>
+    "<%= slugname %>" <% for (var i = 0; i < keywords.length; i++) { %> ,
+    "<%= keywords[i] %>" <% } %>
   ],
   "scripts": {
     "start": "node index.js",
@@ -26,7 +24,7 @@
     "note1": "we can't have nice things. prepublish also runs on npm install https://github.com/npm/npm/issues/6394 in-publish hacks around this",
     "prepublish": "in-publish && source ./scripts.sh && npm prune && npm run gitPush || in-install",
     "note2": "eslint will always pull from the global eslintrc file, disable that so that we're only looking at the local",
-    "lint": "eslint --no-eslintrc --config .eslintrc ${@-.}",
+    "lint": "source ./scripts.sh && lint",
     "requireGitClean": "source ./scripts.sh && git_require_clean_work_tree",
     "nsp": "nsp audit-package",
     "note3": "--no-verify skips the commit hook",

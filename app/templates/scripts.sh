@@ -3,6 +3,10 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+function lint(){
+  eslint --no-eslintrc --config .eslintrc ${@-.}
+}
+
 function git_require_clean_work_tree(){
   git diff --exit-code
 }
