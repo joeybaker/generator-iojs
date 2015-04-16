@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.6.1 | 2015-04-15
+* put back lint and test checks before release
+
 ## v1.6.0 | 2015-04-15
 * fixes crazy generator error that came from the better `npm run lint`
 * fixes for crazy undocumented yeoman changes
@@ -165,6 +168,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
