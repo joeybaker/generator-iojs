@@ -123,8 +123,6 @@ module.exports = yeoman.generators.Base.extend({
     this.config.save()
     // use lodash's tempalte engine instead of the crappy underscore one that is
     // the default
-    this.engine(_.template)
-    _.templateSettings.interpolate = /<%=([\s\S]+?)%>/g
     this.copy('editorconfig', '.editorconfig')
     this.copy('gitignore', '.gitignore')
     this.copy('eslintrc', '.eslintrc')
