@@ -65,7 +65,7 @@
   "homepage": "https://github.com/joeybaker/generator-iojs",
   "dependencies": {
     "npm-name": "^1.0.4",
-    "yeoman-generator": "^0.18.10"
+    "yeoman-generator": "^0.19.1"
   },
   "files": [
     "app"
