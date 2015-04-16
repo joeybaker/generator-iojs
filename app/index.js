@@ -3,6 +3,9 @@
 var path = require('path')
   , npmName = require('npm-name')
   , yeoman = require('yeoman-generator')
+  , _ = require('lodash')
+  , mkdirp = require('mkdirp')
+  , cwd = process.cwd()
 
 module.exports = yeoman.generators.Base.extend({
   init: function init(){
@@ -20,7 +23,7 @@ module.exports = yeoman.generators.Base.extend({
     prompts = [{
       name: 'name'
       , message: 'Module Name'
-      , 'default': path.basename(process.cwd())
+      , 'default': path.basename(cwd)
     }
     , {
       type: 'confirm'
@@ -43,7 +46,7 @@ module.exports = yeoman.generators.Base.extend({
     this.prompt(prompts, function onPrompt(props){
       if (props.pkgName) return this.askForModuleName()
 
-      this.slugname = this._.slugify(props.name)
+      this.slugname = _.deburr(props.name).split(' ').join('-')
       this.safeSlugname = this.slugname.replace(/-+([a-zA-Z0-9])/g, function safedTheSlugName(g){
         return g[1].toUpperCase()
       })
@@ -118,7 +121,10 @@ module.exports = yeoman.generators.Base.extend({
 
   , app: function app(){
     this.config.save()
-    this.template('_package.json', 'package.json')
+    // use lodash's tempalte engine instead of the crappy underscore one that is
+    // the default
+    this.engine(_.template)
+    _.templateSettings.interpolate = /<%=([\s\S]+?)%>/g
     this.copy('editorconfig', '.editorconfig')
     this.copy('gitignore', '.gitignore')
     this.copy('eslintrc', '.eslintrc')
@@ -128,6 +134,7 @@ module.exports = yeoman.generators.Base.extend({
     this.copy('travis.yml', '.travis.yml')
 
     this.template('README.md', 'README.md')
+    this.template('_package.json', 'package.json')
     this.template('CONTRIBUTING.md', 'CONTRIBUTING.md')
     this.template('CHANGELOG.md', 'CHANGELOG.md')
     this.copy('LICENSE', 'LICENSE')
@@ -135,7 +142,7 @@ module.exports = yeoman.generators.Base.extend({
 
   , projectfiles: function projectfiles(){
     this.template('index.js', 'index.js')
-    this.mkdir('test')
+    mkdirp(path.join(cwd, 'test'))
     this.template('test/test.js', 'test/test.js')
   }
 

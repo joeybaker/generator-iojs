@@ -64,6 +64,6 @@ test('iojs generator creation', function creationTest(t){
 
   helpers.run(path.join(__dirname, '..', 'app', 'index.js'))
     .inDir(testDir)
-    .withPrompt(promptAnswers)
+    .withPrompts(promptAnswers)
     .on('end', runTests)
 })
