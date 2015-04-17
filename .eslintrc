@@ -239,7 +239,6 @@
     ],
     "wrap-regex": 0,
 
-    "react/display-name": 1,
     "react/jsx-uses-react": 1,
     "react/jsx-uses-vars": 1,
     "react/no-did-mount-set-state": 1,
