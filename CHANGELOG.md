@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.6.3 | 2015-04-17
+* eslint: rm react/displayName since jsx is common
+
 ## v1.6.2 | 2015-04-15
 * bah… setting the engine doesn’t work
 
@@ -171,6 +174,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
