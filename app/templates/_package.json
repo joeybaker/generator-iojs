@@ -1,6 +1,7 @@
 {
   "version": "0.0.0",
   "name": "<%= slugname %>",
+  "description": "<%= props.description %>",
   "author": {
     "name": "<%= props.authorName %>",
     "email": "<%= props.authorEmail %>"<% if (props.authorUrl) { %> ,
