@@ -42,6 +42,7 @@ Tests are in [tape](https://github.com/substack/tape) and code coverage is run t
 * `npm test` will run both server and browser tests
 * `npm run test-browser` and `npm run test-server` run their respective tests
 * `npm run tdd-server` will run the server tests on every file change.
+* `npm run tdd-browser` will run the browser tests on every file change.
 
 ## Developing
 To publish, run `npm run release -- [{patch,minor,major}]`

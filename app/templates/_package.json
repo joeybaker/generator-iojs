@@ -22,6 +22,7 @@
     "test-server": "covert test/*.js | tap-spec",
     "test": "npm run test-server && npm run test-browser",
     "tdd-server": "nodemon -x npm -i node_modules/ -- run test-server",
+    "tdd-browser": "smokestack-watch test/*.js -t coverify",
     "note1": "we can't have nice things. prepublish also runs on npm install https://github.com/npm/npm/issues/6394 in-publish hacks around this",
     "prepublish": "in-publish && source ./scripts.sh && npm prune && npm run gitPush || in-install",
     "note2": "eslint will always pull from the global eslintrc file, disable that so that we're only looking at the local",
@@ -60,6 +61,7 @@
     "nsp": "^0.4.2",
     "sinon": "^1.12.2",
     "smokestack": "^3.2.0",
+    "smokestack-watch": "^0.2.1",
     "tap-closer": "^1.0.0",
     "tap-spec": "^2.2.0",
     "tape": "^3.5.0"
