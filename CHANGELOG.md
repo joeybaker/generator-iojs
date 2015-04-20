@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.7.0 | 2015-04-20
+* add: tdd-browser
+* fix: show description in package.json #oops
+
 ## v1.6.3 | 2015-04-17
 * eslint: rm react/displayName since jsx is common
 
@@ -174,6 +178,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
