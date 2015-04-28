@@ -181,7 +181,14 @@
     "no-trailing-spaces": 2,
     "no-underscore-dangle": 0,
     "no-wrap-func": 2,
-    "one-var": 1,
+    "one-var": [
+      1,
+      {
+        "var": "always",
+        "let": "never",
+        "const": "never"
+      }
+    ],
     "operator-assignment": [
       2,
       "always"
@@ -208,7 +215,7 @@
       "always"
     ],
     "space-before-blocks": 0,
-    "space-before-function-parentheses": [
+    "space-before-function-paren": [
       1,
       "always"
     ],
