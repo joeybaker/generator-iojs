@@ -33,15 +33,14 @@
   "devDependencies": {
     "covert": "^1.0.1",
     "dmn": "^1.0.5",
-    "doctoc": "^0.7.1",
-    "eslint": "^0.16.2",
-    "eslint-plugin-react": "^1.5.0",
-    "ghooks": "^0.2.2",
+    "doctoc": "^0.13.0",
+    "eslint": "^0.20.0",
+    "ghooks": "^0.3.2",
     "in-publish": "^1.1.1",
-    "nodemon": "^1.2.1",
-    "nsp": "^0.4.2",
-    "tap-spec": "^2.2.0",
-    "tape": "^3.5.0"
+    "nodemon": "^1.3.7",
+    "nsp": "^1.0.1",
+    "tap-spec": "^3.0.0",
+    "tape": "^4.0.0"
   },
   "name": "generator-iojs",
   "description": "A basic node module template, that includes handy git hooks, a release script, and auto-changelog generation.",
@@ -64,7 +63,7 @@
   },
   "homepage": "https://github.com/joeybaker/generator-iojs",
   "dependencies": {
-    "lodash": "^3.6.0",
+    "lodash": "^3.7.0",
     "mkdirp": "^0.5.0",
     "npm-name": "^1.0.4",
     "yeoman-generator": "^0.19.1"
