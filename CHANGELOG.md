@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.7.1 | 2015-04-28
+* template: update eslintrc for new eslint rules
+* template: update deps
+* misc #cleanup
+
 ## v1.7.0 | 2015-04-20
 * add: tdd-browser
 * fix: show description in package.json #oops
@@ -178,6 +183,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
