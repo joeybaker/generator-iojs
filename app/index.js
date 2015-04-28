@@ -8,7 +8,7 @@ var path = require('path')
   , cwd = process.cwd()
 
 module.exports = yeoman.generators.Base.extend({
-  init: function init(){
+  init: function init () {
     this.pkg = require('../package.json')
     this.log(
       this.yeoman +
@@ -16,7 +16,7 @@ module.exports = yeoman.generators.Base.extend({
       '\nshould be a unique ID not already in use at npmjs.org.')
   }
 
-  , askForModuleName: function askForModuleName(){
+  , askForModuleName: function askForModuleName () {
     var done = this.async()
       , prompts
 
@@ -30,10 +30,10 @@ module.exports = yeoman.generators.Base.extend({
       , name: 'pkgName'
       , message: 'The name above already exists on npm, choose another?'
       , 'default': true
-      , when: function when(answers){
+      , when: function when (answers) {
         var whenDone = this.async()
 
-        npmName(answers.name, function gotNPMName(err, available){
+        npmName(answers.name, function gotNPMName (err, available) {
           if (err || !available){
             return void whenDone(true)
           }
@@ -43,11 +43,11 @@ module.exports = yeoman.generators.Base.extend({
       }
     }]
 
-    this.prompt(prompts, function onPrompt(props){
+    this.prompt(prompts, function onPrompt (props) {
       if (props.pkgName) return this.askForModuleName()
 
       this.slugname = _.deburr(props.name).split(' ').join('-')
-      this.safeSlugname = this.slugname.replace(/-+([a-zA-Z0-9])/g, function safedTheSlugName(g){
+      this.safeSlugname = this.slugname.replace(/-+([a-zA-Z0-9])/g, function safedTheSlugName (g) {
         return g[1].toUpperCase()
       })
 
@@ -55,7 +55,7 @@ module.exports = yeoman.generators.Base.extend({
     }.bind(this))
   }
 
-  , askFor: function askFor(){
+  , askFor: function askFor () {
     var cb = this.async()
       , prompts
 
@@ -101,7 +101,7 @@ module.exports = yeoman.generators.Base.extend({
 
     this.currentYear = (new Date()).getFullYear()
 
-    this.prompt(prompts, function onPrompt(props){
+    this.prompt(prompts, function onPrompt (props) {
       if (props.githubUsername){
         this.repoUrl = props.githubUsername + '/' + this.slugname
       }
@@ -109,7 +109,7 @@ module.exports = yeoman.generators.Base.extend({
         this.repoUrl = 'user/repo'
       }
 
-      this.keywords = props.keywords.split(',').map(function trimKeywords(el){
+      this.keywords = props.keywords.split(',').map(function trimKeywords (el) {
         return el.trim()
       })
 
@@ -119,10 +119,8 @@ module.exports = yeoman.generators.Base.extend({
     }.bind(this))
   }
 
-  , app: function app(){
+  , app: function app () {
     this.config.save()
-    // use lodash's tempalte engine instead of the crappy underscore one that is
-    // the default
     this.copy('editorconfig', '.editorconfig')
     this.copy('gitignore', '.gitignore')
     this.copy('eslintrc', '.eslintrc')
@@ -138,13 +136,13 @@ module.exports = yeoman.generators.Base.extend({
     this.copy('LICENSE', 'LICENSE')
   }
 
-  , projectfiles: function projectfiles(){
+  , projectfiles: function projectfiles () {
     this.template('index.js', 'index.js')
     mkdirp(path.join(cwd, 'test'))
     this.template('test/test.js', 'test/test.js')
   }
 
-  , install: function install(){
+  , install: function install () {
     this.installDependencies({
       bower: false
       , skipInstall: this.options['skip-install']
