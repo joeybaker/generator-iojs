@@ -1,19 +1,24 @@
 'use strict'
 
 var path = require('path')
+  , npm = require('npm')
   , npmName = require('npm-name')
   , yeoman = require('yeoman-generator')
+  , getUsername = require('username')
+  , getFullname = require('fullname')
   , _ = require('lodash')
   , mkdirp = require('mkdirp')
   , cwd = process.cwd()
 
 module.exports = yeoman.generators.Base.extend({
   init: function init () {
+    var done = this.async()
     this.pkg = require('../package.json')
     this.log(
       this.yeoman +
       '\nThe name of your project shouldn\'t contain "node" or "js" and' +
       '\nshould be a unique ID not already in use at npmjs.org.')
+    npm.load(done)
   }
 
   , askForModuleName: function askForModuleName () {
@@ -56,7 +61,7 @@ module.exports = yeoman.generators.Base.extend({
   }
 
   , askFor: function askFor () {
-    var cb = this.async()
+    var done = this.async()
       , prompts
 
     prompts = [{
@@ -77,21 +82,25 @@ module.exports = yeoman.generators.Base.extend({
     , {
       name: 'githubUsername'
       , message: 'GitHub username'
+      , default: getUsername.sync()
       , store: true
     }
     , {
       name: 'authorName'
       , message: 'Author\'s Name'
+      , default: npm.config.get('init.author.name') || getFullname.sync()
       , store: true
     }
     , {
       name: 'authorEmail'
       , message: 'Author\'s Email'
+      , default: npm.config.get('init.author.email')
       , store: true
     }
     , {
       name: 'authorUrl'
       , message: 'Author\'s Homepage'
+      , default: npm.config.get('init.author.site')
       , store: true
     }
     , {
@@ -115,7 +124,7 @@ module.exports = yeoman.generators.Base.extend({
 
       this.props = props
 
-      cb()
+      done()
     }.bind(this))
   }
 
