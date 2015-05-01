@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.7.3 | 2015-05-01
+* Add defaults for names fixes #17
+* Install username and fullname
+
 ## v1.7.2 | 2015-04-29
 * fix for travis not playing nice with bash
 * enable es6 modules
@@ -187,6 +191,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
