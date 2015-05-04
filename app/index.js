@@ -118,9 +118,11 @@ module.exports = yeoman.generators.Base.extend({
         this.repoUrl = 'user/repo'
       }
 
-      this.keywords = props.keywords.split(',').map(function trimKeywords (el) {
-        return el.trim()
-      })
+      this.keywords = props.keywords.split(',')
+        .map(function trimKeywords (el) {
+          return el.trim()
+        })
+        .filter(Boolean)
 
       this.props = props
 
