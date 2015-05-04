@@ -54,7 +54,7 @@ module.exports = yeoman.generators.Base.extend({
       this.slugname = _.deburr(props.name).split(' ').join('-')
       this.safeSlugname = this.slugname.replace(/-+([a-zA-Z0-9])/g, function safedTheSlugName (g) {
         return g[1].toUpperCase()
-      })
+      }).replace('@', '').replace('/', '-')
 
       done()
     }.bind(this))
