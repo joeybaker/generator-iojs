@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.0.1 | 2015-05-04
+* fix fullname error
+
 ## v2.0.0 | 2015-05-04
 * covert was removed #oops
 * more fixes for different env modes
@@ -204,6 +207,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
