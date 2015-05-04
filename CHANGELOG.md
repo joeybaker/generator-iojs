@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.8.0 | 2015-05-04
+* better support for npm private modules
+* sort keywords alphabetically
+* Allow a default extension
+* fix test generation Fixes #20
+* Add support for cli, browser and server modes
+* assume es6! default to using babelify
+* filter out empty keywords
+
 ## v1.7.3 | 2015-05-01
 * Add defaults for names fixes #17
 * Install username and fullname
@@ -191,6 +200,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
