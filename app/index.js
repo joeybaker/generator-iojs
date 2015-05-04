@@ -125,6 +125,10 @@ module.exports = yeoman.generators.Base.extend({
       , type: 'confirm'
       , default: false
     }
+    , {
+      name: 'extension'
+      , message: 'Default extension?'
+      , default: '.js'
     }]
 
     this.currentYear = (new Date()).getFullYear()
@@ -147,6 +151,11 @@ module.exports = yeoman.generators.Base.extend({
           return el.trim()
         })
         .filter(Boolean)
+
+      props.extension = props.extension.trim()
+      if (props.extension.indexOf('.') !== 0) {
+        props.extension = '.' + props.extension
+      }
 
       props.isServerAndBrowser = (props.isServer || props.isCLI) && props.isBrowser
 
@@ -174,9 +183,9 @@ module.exports = yeoman.generators.Base.extend({
   }
 
   , projectfiles: function projectfiles () {
-    this.template('index.js', 'index.js')
+    this.template('index.js', 'index' + this.props.extension)
     mkdirp(path.join(cwd, 'test'))
-    this.template('test/test.js', 'test/test.js')
+    this.template('test/test.js', 'test/test' + this.props.extension)
     if (this.props.isCLI) {
       mkdirp(path.join(cwd, 'bin'))
       this.copy('bin/cli', 'bin/' + this.repoName)
