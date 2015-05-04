@@ -106,13 +106,37 @@ module.exports = yeoman.generators.Base.extend({
     , {
       name: 'keywords'
       , message: 'Key your keywords (comma to split)'
+    }
+    , {
+      name: 'isServer'
+      , message: 'Will this run on the server?'
+      , type: 'confirm'
+      , default: true
+    }
+    , {
+      name: 'isBrowser'
+      , message: 'Will this run in the browser?'
+      , type: 'confirm'
+      , default: true
+    }
+    , {
+      name: 'isCLI'
+      , message: 'Will this run in the shell?'
+      , type: 'confirm'
+      , default: false
+    }
     }]
 
     this.currentYear = (new Date()).getFullYear()
 
     this.prompt(prompts, function onPrompt (props) {
+      this.repoName = this.safeSlugname.split('-').filter(function removeName (part, i) {
+        if (i === 0 && part.toLowerCase() === props.githubUsername.toLowerCase()) return false
+        else return true
+      }).join('-')
+
       if (props.githubUsername){
-        this.repoUrl = props.githubUsername + '/' + this.slugname
+        this.repoUrl = props.githubUsername + '/' + this.repoName
       }
       else {
         this.repoUrl = 'user/repo'
@@ -123,6 +147,8 @@ module.exports = yeoman.generators.Base.extend({
           return el.trim()
         })
         .filter(Boolean)
+
+      props.isServerAndBrowser = (props.isServer || props.isCLI) && props.isBrowser
 
       this.props = props
 
@@ -151,6 +177,10 @@ module.exports = yeoman.generators.Base.extend({
     this.template('index.js', 'index.js')
     mkdirp(path.join(cwd, 'test'))
     this.template('test/test.js', 'test/test.js')
+    if (this.props.isCLI) {
+      mkdirp(path.join(cwd, 'bin'))
+      this.copy('bin/cli', 'bin/' + this.repoName)
+    }
   }
 
   , install: function install () {

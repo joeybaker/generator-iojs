@@ -13,16 +13,16 @@
     "test": "test"
   },
   "keywords": [
-    "<%= slugname %>" <% for (var i = 0; i < keywords.length; i++) { %> ,
-    "<%= keywords[i] %>" <% } %>
+    "<%= keywords.join('",\n    "') %>"
   ],
   "scripts": {
-    "start": "babel-node index.js",
-    "test-browser": "browserify -t babelify test/test.js | tap-closer | smokestack -b chrome | tap-spec",
-    "test-server": "babel-node test/*.js | tap-spec",
+    <% if (props.isServer) { %>"start": "babel-node index<%= props.extension %>",<% } %><% if (props.isBrowserAndServer) { %>"test-browser": "browserify -t babelify test/test<%= props.extension %> | tap-closer | smokestack -b chrome | tap-spec",
+    "test-server": "babel-node test/*<%= props.extension %> | tap-spec",
     "test": "npm run test-server && npm run test-browser",
     "tdd-server": "nodemon -x npm -i node_modules/ -- run test-server",
-    "tdd-browser": "smokestack-watch test/*.js -t babelify | tap-spec",
+    "tdd-browser": "smokestack-watch test/*<%= props.extension %> -t babelify | tap-spec",<% } %><% if (props.isBrowser && !props.isServer) { %>"test": "browserify -t babelify test/test<%= props.extension %> | tap-closer | smokestack -b chrome | tap-spec",
+    "tdd": "smokestack-watch test/*<%= props.extension %> -t babelify | tap-spec",<% } %><% if (props.isServer || props.isCLI && !props.isBrowser) { %>"test": "babel-node test/*<%= props.extension %> | tap-spec",
+    "tdd": "nodemon -x npm -i node_modules/ -- run test-server",<% } %>
     "note1": "we can't have nice things. prepublish also runs on npm install https://github.com/npm/npm/issues/6394 in-publish hacks around this",
     "prepublish": "in-publish && npm prune && npm run gitPush || in-install",
     "note2": "eslint will always pull from the global eslintrc file, disable that so that we're only looking at the local",
@@ -46,26 +46,27 @@
     }
   },
   "license": "Artistic-2.0",
-  "main": "index.js",
-  "browser": "index.js",
+  "main": "index<%= props.extension %>",<% if (props.isBrowser) { %>
+  "browser": "index<%= props.extension %>",<% } %><% if (props.isCLI) { %>
+  "bin": {
+    "<%= repoName %>": "bin/<%= repoName %>"
+  },<% } %>
   "devDependencies": {
-    "babel": "^5.2.9",
+    "babel": "^5.2.9",<% if (props.isBrowser) { %>
     "babelify": "^6.0.2",
-    "browserify": "^9.0.8",
-    "coverify": "^1.0.7",
-    "covert": "^1.0.1",
+    "browserify": "^9.0.8",<% } %>
     "dmn": "^1.0.5",
     "doctoc": "^0.13.0",
-    "eslint": "^0.20.0",
-    "eslint-plugin-react": "^2.0.0",
+    "eslint": "^0.20.0",<% if (props.isBrowser) { %>
+    "eslint-plugin-react": "^2.0.0",<% } %>
     "ghooks": "^0.3.2",
-    "in-publish": "^1.1.1",
-    "nodemon": "^1.2.1",
+    "in-publish": "^1.1.1",<% if (props.isServer || props.isCLI) { %>
+    "nodemon": "^1.2.1",<% } %>
     "nsp": "^1.0.1",
-    "sinon": "^1.12.2",
+    "sinon": "^1.12.2",<% if (props.isBrowser) { %>
     "smokestack": "^3.2.0",
-    "smokestack-watch": "^0.2.1",
-    "tap-closer": "^1.0.0",
+    "smokestack-watch": "^0.4.1",
+    "tap-closer": "^1.0.0",<% } %>
     "tap-spec": "^3.0.0",
     "tape": "^4.0.0"
   }
