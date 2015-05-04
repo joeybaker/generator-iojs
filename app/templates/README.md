@@ -37,7 +37,7 @@ Returns the string passed to it.
 Emitted when x happens. Passes `myString` which is a y.
 
 ## Tests
-Tests are in [tape](https://github.com/substack/tape) and code coverage is run though [covert](https://github.com/substack/covert).
+Tests are in [tape](https://github.com/substack/tape).
 
 <% if (props.isBrowserAndServer) { %>* `npm test` will run both server and browser tests
 * `npm run test-browser` and `npm run test-server` run their respective tests
