@@ -62,107 +62,113 @@ module.exports = yeoman.generators.Base.extend({
 
   , askFor: function askFor () {
     var done = this.async()
+      , fullname = ''
       , prompts
 
-    prompts = [{
-      name: 'description'
-      , message: 'Description'
-      , 'default': 'The best module ever.'
-    }
-    , {
-      name: 'homepage'
-      , message: 'Homepage'
-    }
-    , {
-      name: 'license'
-      , message: 'License'
-      , 'default': 'Artistic 2.0'
-      , store: true
-    }
-    , {
-      name: 'githubUsername'
-      , message: 'GitHub username'
-      , default: getUsername.sync()
-      , store: true
-    }
-    , {
-      name: 'authorName'
-      , message: 'Author\'s Name'
-      , default: npm.config.get('init.author.name') || getFullname.sync()
-      , store: true
-    }
-    , {
-      name: 'authorEmail'
-      , message: 'Author\'s Email'
-      , default: npm.config.get('init.author.email')
-      , store: true
-    }
-    , {
-      name: 'authorUrl'
-      , message: 'Author\'s Homepage'
-      , default: npm.config.get('init.author.site')
-      , store: true
-    }
-    , {
-      name: 'keywords'
-      , message: 'Key your keywords (comma to split)'
-    }
-    , {
-      name: 'isServer'
-      , message: 'Will this run on the server?'
-      , type: 'confirm'
-      , default: true
-    }
-    , {
-      name: 'isBrowser'
-      , message: 'Will this run in the browser?'
-      , type: 'confirm'
-      , default: true
-    }
-    , {
-      name: 'isCLI'
-      , message: 'Will this run in the shell?'
-      , type: 'confirm'
-      , default: false
-    }
-    , {
-      name: 'extension'
-      , message: 'Default extension?'
-      , default: '.js'
-    }]
+    getFullname(function gotFullname (err, name) {
+      if (err) console.info('could not get fullname from system')
+      fullname = name
 
-    this.currentYear = (new Date()).getFullYear()
-
-    this.prompt(prompts, function onPrompt (props) {
-      this.repoName = this.safeSlugname.split('-').filter(function removeName (part, i) {
-        if (i === 0 && part.toLowerCase() === props.githubUsername.toLowerCase()) return false
-        else return true
-      }).join('-')
-
-      if (props.githubUsername){
-        this.repoUrl = props.githubUsername + '/' + this.repoName
+      prompts = [{
+        name: 'description'
+        , message: 'Description'
+        , 'default': 'The best module ever.'
       }
-      else {
-        this.repoUrl = 'user/repo'
+      , {
+        name: 'homepage'
+        , message: 'Homepage'
       }
-
-      this.keywords = props.keywords.split(',')
-        .map(function trimKeywords (el) {
-          return el.trim()
-        })
-        .filter(Boolean)
-        .sort()
-
-      props.extension = props.extension.trim()
-      if (props.extension.indexOf('.') !== 0) {
-        props.extension = '.' + props.extension
+      , {
+        name: 'license'
+        , message: 'License'
+        , 'default': 'Artistic 2.0'
+        , store: true
       }
+      , {
+        name: 'githubUsername'
+        , message: 'GitHub username'
+        , default: getUsername.sync()
+        , store: true
+      }
+      , {
+        name: 'authorName'
+        , message: 'Author\'s Name'
+        , default: npm.config.get('init.author.name') || fullname
+        , store: true
+      }
+      , {
+        name: 'authorEmail'
+        , message: 'Author\'s Email'
+        , default: npm.config.get('init.author.email')
+        , store: true
+      }
+      , {
+        name: 'authorUrl'
+        , message: 'Author\'s Homepage'
+        , default: npm.config.get('init.author.site')
+        , store: true
+      }
+      , {
+        name: 'keywords'
+        , message: 'Key your keywords (comma to split)'
+      }
+      , {
+        name: 'isServer'
+        , message: 'Will this run on the server?'
+        , type: 'confirm'
+        , default: true
+      }
+      , {
+        name: 'isBrowser'
+        , message: 'Will this run in the browser?'
+        , type: 'confirm'
+        , default: true
+      }
+      , {
+        name: 'isCLI'
+        , message: 'Will this run in the shell?'
+        , type: 'confirm'
+        , default: false
+      }
+      , {
+        name: 'extension'
+        , message: 'Default extension?'
+        , default: '.js'
+      }]
 
-      props.isServerAndBrowser = (props.isServer || props.isCLI) && props.isBrowser
+      this.currentYear = (new Date()).getFullYear()
 
-      this.props = props
+      this.prompt(prompts, function onPrompt (props) {
+        this.repoName = this.safeSlugname.split('-').filter(function removeName (part, i) {
+          if (i === 0 && part.toLowerCase() === props.githubUsername.toLowerCase()) return false
+          else return true
+        }).join('-')
 
-      done()
+        if (props.githubUsername){
+          this.repoUrl = props.githubUsername + '/' + this.repoName
+        }
+        else {
+          this.repoUrl = 'user/repo'
+        }
+
+        this.keywords = props.keywords.split(',')
+          .map(function trimKeywords (el) {
+            return el.trim()
+          })
+          .filter(Boolean)
+          .sort()
+
+        props.extension = props.extension.trim()
+        if (props.extension.indexOf('.') !== 0) {
+          props.extension = '.' + props.extension
+        }
+
+        props.isServerAndBrowser = (props.isServer || props.isCLI) && props.isBrowser
+
+        this.props = props
+
+        done()
+      }.bind(this))
     }.bind(this))
   }
 
