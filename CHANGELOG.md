@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.1.1 | 2015-05-04
+* build script now picks up newly created file
+
 ## v2.1.0 | 2015-05-04
 * build es5 from es6 for release
 
@@ -210,6 +213,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
