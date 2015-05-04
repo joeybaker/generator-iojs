@@ -1,13 +1,13 @@
 'use strict'
 
 var test = require('tape')
-  , <%= slugname %> = require('../')
+  , <%= repoName %> = require('../')
 
-test('<%= slugname %>#get', function getTest(t){
+test('<%= repoName %>#get', function getTest(t){
   t.plan(2)
 
   t.doesNotThrow(
-    <%= slugname %>.get
+    <%= repoName %>.get
     , 'does not throw'
   )
 
