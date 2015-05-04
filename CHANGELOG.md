@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.1.0 | 2015-05-04
+* build es5 from es6 for release
+
 ## v2.0.1 | 2015-05-04
 * fix fullname error
 
@@ -207,6 +210,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
