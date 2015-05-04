@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.0 | 2015-05-04
+* covert was removed #oops
+* more fixes for different env modes
+
 ## v1.8.0 | 2015-05-04
 * better support for npm private modules
 * sort keywords alphabetically
@@ -200,6 +204,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
