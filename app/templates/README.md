@@ -1,4 +1,4 @@
-# <%= slugname %> [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
+# <%= repoName %> [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
 
 <%= props.description %>
 
@@ -23,9 +23,9 @@ npm i -S <%= slugname %>
 ## Usage
 
 ```js
-var <%= safeSlugname %> = require('<%= slugname %>')
+var <%= repoName %> = require('<%= slugname %>')
 
-<%= safeSlugname %>('Rainbow')
+<%= repoName %>('Rainbow')
 ```
 
 ## Methods
@@ -39,10 +39,17 @@ Emitted when x happens. Passes `myString` which is a y.
 ## Tests
 Tests are in [tape](https://github.com/substack/tape) and code coverage is run though [covert](https://github.com/substack/covert).
 
-* `npm test` will run both server and browser tests
+<% if (props.isBrowserAndServer) { %>* `npm test` will run both server and browser tests
 * `npm run test-browser` and `npm run test-server` run their respective tests
 * `npm run tdd-server` will run the server tests on every file change.
 * `npm run tdd-browser` will run the browser tests on every file change.
+<% } %><% if (props.isBrowser && !props.isServer) { %>
+* `npm test` will run the tests in a browser
+* `npm run tdd` will run the tests in a browser on every file change.
+<% } %><% if (!props.isBrowser && props.isServer) { %>
+* `npm test` will run the tests
+* `npm run tdd` will run the tests on every file change.
+<% } %>
 
 ## Developing
 To publish, run `npm run release -- [{patch,minor,major}]`
