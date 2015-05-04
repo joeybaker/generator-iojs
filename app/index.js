@@ -151,6 +151,7 @@ module.exports = yeoman.generators.Base.extend({
           return el.trim()
         })
         .filter(Boolean)
+        .sort()
 
       props.extension = props.extension.trim()
       if (props.extension.indexOf('.') !== 0) {
