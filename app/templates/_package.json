@@ -4,7 +4,7 @@
   "description": "<%= props.description %>",
   "author": {
     "name": "<%= props.authorName %>",
-    "email": "<%= props.authorEmail %>"<% if (props.authorUrl) { %> ,
+    "email": "<%= props.authorEmail %>"<% if (props.authorUrl) { %>,
     "url": "<%= props.authorUrl %>"<% } %>
   },
   "repository": "<%= repoUrl %>",
@@ -17,12 +17,12 @@
     "<%= keywords[i] %>" <% } %>
   ],
   "scripts": {
-    "start": "node index.js",
-    "test-browser": "browserify -t coverify test/test.js | tap-closer | smokestack -b chrome | tap-spec",
-    "test-server": "covert test/*.js | tap-spec",
+    "start": "babel-node index.js",
+    "test-browser": "browserify -t babelify test/test.js | tap-closer | smokestack -b chrome | tap-spec",
+    "test-server": "babel-node test/*.js | tap-spec",
     "test": "npm run test-server && npm run test-browser",
     "tdd-server": "nodemon -x npm -i node_modules/ -- run test-server",
-    "tdd-browser": "smokestack-watch test/*.js -t coverify | tap-spec",
+    "tdd-browser": "smokestack-watch test/*.js -t babelify | tap-spec",
     "note1": "we can't have nice things. prepublish also runs on npm install https://github.com/npm/npm/issues/6394 in-publish hacks around this",
     "prepublish": "in-publish && npm prune && npm run gitPush || in-install",
     "note2": "eslint will always pull from the global eslintrc file, disable that so that we're only looking at the local",
@@ -49,6 +49,8 @@
   "main": "index.js",
   "browser": "index.js",
   "devDependencies": {
+    "babel": "^5.2.9",
+    "babelify": "^6.0.2",
     "browserify": "^9.0.8",
     "coverify": "^1.0.7",
     "covert": "^1.0.1",
