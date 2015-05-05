@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.2.1 | 2015-05-05
+* Ensure GNU sort is in the PATH
+
 ## v2.2.0 | 2015-05-05
 * Ensure modern unix tools are installed
 * docs: remove reference to covert
@@ -223,6 +226,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
