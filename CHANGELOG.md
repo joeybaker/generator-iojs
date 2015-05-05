@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.1.3 | 2015-05-04
+* ensure linter runs on jsx files
+
 ## v2.1.2 | 2015-05-04
 * don’t commit compiled es5
 
@@ -216,6 +219,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
