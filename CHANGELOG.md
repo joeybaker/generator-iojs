@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.1.2 | 2015-05-04
+* don’t commit compiled es5
+
 ## v2.1.1 | 2015-05-04
 * build script now picks up newly created file
 
@@ -213,6 +216,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
