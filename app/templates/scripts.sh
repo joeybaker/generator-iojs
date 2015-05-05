@@ -3,6 +3,16 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+# ensure a modern version of sort is installed
+# get the version of sort, find the line that has the version number
+# get the last word with awk, which is the version number
+# if that version number is greater than 7, we're good,
+# else, we need to install coreutils
+if [ $(echo "$(sort --version | grep '(GNU' | awk 'NF>1{print $NF}') > 7" | bc) != 1 ]; then
+  echo "Installing coreutils to give you a modern shell experience"
+  brew install coreutils
+fi
+
 function lint(){
   eslint --no-eslintrc --config .eslintrc ${@-.} --ext .jsx --ext .js --ext .es6
 }
