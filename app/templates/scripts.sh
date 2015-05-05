@@ -34,7 +34,8 @@ function find_changelog_file(){
 }
 
 function find_last_git_tag(){
-  git tag -l | sort -V | tail -n 1
+  # ensure the gnu version of sort is avaliable
+  PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH" && git tag -l | sort -V | tail -n 1
 }
 
 # based on https://github.com/tj/git-extras/blob/master/bin/git-changelog
