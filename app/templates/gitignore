@@ -9,12 +9,11 @@ lib-cov
 *.patch
 *.swp
 .DS_store
-
 pids
 logs
 results
-
 npm-debug.log
 node_modules
-
+.yo-rc.json
 test/temp
+*.es5

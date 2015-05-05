@@ -14,3 +14,5 @@ CHANGELOG.*
 scripts.sh
 npm-debug.log
 .DS_Store
+.eslintrc
+*<%= props.extension %>
