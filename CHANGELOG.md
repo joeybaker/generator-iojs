@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.2.0 | 2015-05-05
+* Ensure modern unix tools are installed
+* docs: remove reference to covert
+
 ## v2.1.3 | 2015-05-04
 * ensure linter runs on jsx files
 
@@ -219,6 +223,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
