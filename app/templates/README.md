@@ -1,4 +1,4 @@
-# <%= repoName %> [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
+# <%= props.name %> [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
 
 <%= props.description %>
 
@@ -23,9 +23,9 @@ npm i -S <%= slugname %>
 ## Usage
 
 ```js
-var <%= repoName %> = require('<%= slugname %>')
+import <%= props.safeSlugname %> from '<%= slugname %>'
 
-<%= repoName %>('Rainbow')
+<%= props.saveSlugname %>('Rainbow')
 ```
 
 ## Methods

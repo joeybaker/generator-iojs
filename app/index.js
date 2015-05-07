@@ -139,8 +139,8 @@ module.exports = yeoman.generators.Base.extend({
       this.currentYear = (new Date()).getFullYear()
 
       this.prompt(prompts, function onPrompt (props) {
-        this.repoName = this.safeSlugname.split('-').filter(function removeName (part, i) {
-          if (i === 0 && part.toLowerCase() === props.githubUsername.toLowerCase()) return false
+        this.repoName = this.slugname.split('/').filter(function removeName (part, i) {
+          if (i === 0 && part.toLowerCase() === '@' + props.githubUsername.toLowerCase()) return false
           else return true
         }).join('-')
 
