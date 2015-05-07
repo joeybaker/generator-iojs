@@ -1,5 +1,14 @@
 # Changelog
 
+## v2.4.0 | 2015-05-07
+* add: better default CLI template
+* add: test is now es6
+* fix: package.json formatting fixes
+* fix: minor readme improvements
+* fix: #cleanup prompt questions
+* internal: fix use of repoName
+* internal: linter #cleanup
+
 ## v2.2.2 | 2015-05-07
 * package.json: fix line spacing errors
 * es5 build: ensure we build in a prod env
@@ -231,6 +240,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
