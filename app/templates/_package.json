@@ -15,8 +15,9 @@
   "keywords": [
     "<%= keywords.join('",\n    "') %>"
   ],
-  "scripts": {
-    <% if (props.isServer) { %>"start": "babel-node index<%= props.extension %>",<% } %><% if (props.isBrowserAndServer) { %>"test-browser": "browserify -t babelify test/test<%= props.extension %> | tap-closer | smokestack -b chrome | tap-spec",
+  "scripts": {<% if (props.isServer) { %>
+    "start": "babel-node index<%= props.extension %>",<% } %><% if (props.isBrowserAndServer) { %>
+    "test-browser": "browserify -t babelify test/test<%= props.extension %> | tap-closer | smokestack -b chrome | tap-spec",
     "test-server": "babel-node test/*<%= props.extension %> | tap-spec",
     "test": "npm run test-server && npm run test-browser",
     "tdd-server": "nodemon -x npm -i node_modules/ -- run test-server",
@@ -24,7 +25,8 @@
     "test": "browserify -t babelify test/test<%= props.extension %> | tap-closer | smokestack -b chrome | tap-spec",
     "tdd": "smokestack-watch test/*<%= props.extension %> -t babelify | tap-spec",<% } %><% if (props.isServer || props.isCLI && !props.isBrowser) { %>
     "test": "babel-node test/*<%= props.extension %> | tap-spec",
-    "tdd": "nodemon -x npm -i node_modules/ -- run test-server",<% } %>
+    "tdd": "nodemon -x npm -i node_modules/ -- run test",
+    "watch": "babel index.js --watch --out-file index.es5",<% } %>
     "note1": "we can't have nice things. prepublish also runs on npm install https://github.com/npm/npm/issues/6394 in-publish hacks around this",
     "prepublish": "in-publish && npm prune && npm run gitPush || in-install",
     "note2": "eslint will always pull from the global eslintrc file, disable that so that we're only looking at the local",
@@ -48,7 +50,6 @@
       "update": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm install"
     }
   },
-  "license": "Artistic-2.0",
   "main": "index.es5",<% if (props.isBrowser) { %>
   "browser": "index.es5",<% } %><% if (props.isCLI) { %>
   "bin": {
