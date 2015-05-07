@@ -8,8 +8,12 @@
 
 - [Install](#install)
 - [Usage](#usage)
+- [Methods](#methods)
+- [Events](#events)
+- [Tests](#tests)
 - [Developing](#developing)
   - [Requirements](#requirements)
+- [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -46,7 +50,7 @@ Tests are in [tape](https://github.com/substack/tape).
 <% } %><% if (props.isBrowser && !props.isServer) { %>
 * `npm test` will run the tests in a browser
 * `npm run tdd` will run the tests in a browser on every file change.
-<% } %><% if (!props.isBrowser && props.isServer) { %>
+<% } %><% if (!props.isBrowser && (props.isServer || props.isCLI)) { %>
 * `npm test` will run the tests
 * `npm run tdd` will run the tests on every file change.
 <% } %>
@@ -62,7 +66,7 @@ _NOTE: you might need to `sudo ln -s /usr/local/bin/node /usr/bin/node` to ensur
 
 ## License
 
-Artistic 2.0 © [<%= props.authorName %>](<%= props.authorUrl %>)
+Artistic 2.0 © <% if (props.authorUrl) { %>[<%= props.authorName %>](<%= props.authorUrl %>)<% } else { %><%= props.authorName %><% } %>
 
 
 [npm-url]: https://npmjs.org/package/<%= slugname %>
