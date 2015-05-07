@@ -1,9 +1,7 @@
-'use strict'
+import test from 'tape'
+import <%= repoName %> from '../index.js'
 
-var test = require('tape')
-  , <%= repoName %> = require('../')
-
-test('<%= repoName %>#get', function getTest(t){
+test('<%= repoName %>#get', (t) => {
   t.plan(2)
 
   t.doesNotThrow(
