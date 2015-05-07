@@ -176,11 +176,11 @@ module.exports = yeoman.generators.Base.extend({
     this.config.save()
     this.copy('editorconfig', '.editorconfig')
     this.copy('gitignore', '.gitignore')
-    this.copy('eslintrc', '.eslintrc')
     this.copy('npmrc', '.npmrc')
     this.copy('scripts.sh', 'scripts.sh')
     this.copy('travis.yml', '.travis.yml')
 
+    this.template('eslintrc', '.eslintrc')
     this.template('npmignore', '.npmignore')
     this.template('README.md', 'README.md')
     this.template('_package.json', 'package.json')

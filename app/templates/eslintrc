@@ -1,7 +1,7 @@
 {
-  "plugins": [
+  <% if (props.isBrowser) { %>"plugins": [
     "react"
-  ],
+  ],<% } %>
   "ecmaFeatures": {
     "arrowFunctions": true,
     "binaryLiterals": true,
@@ -22,11 +22,12 @@
     "superInFunctions": true,
     "templateStrings": true,
     "unicodeCodePointEscapes": true,
-    "globalReturn": true,
-    "jsx": true
+    "globalReturn": true<% if (props.isBrowser) { %>,
+    "jsx": true<% } %>
   },
   "env": {
-    "browser": true,
+    <% if (props.isBrowser) { %>"browser": true,
+    <% } %>
     "node": true,
     "es6": true
   },
@@ -244,7 +245,7 @@
         ]
       }
     ],
-    "wrap-regex": 0,
+    "wrap-regex": 0<% if (props.isBrowser) { %>,
 
     "react/jsx-uses-react": 1,
     "react/jsx-uses-vars": 1,
@@ -254,6 +255,6 @@
     "react/prop-types": 2,
     "react/react-in-jsx-scope": 2,
     "react/self-closing-comp": 1,
-    "react/wrap-multilines": 2
+    "react/wrap-multilines": 2<% } %>
   }
 }
