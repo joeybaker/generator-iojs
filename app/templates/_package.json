@@ -20,8 +20,10 @@
     "test-server": "babel-node test/*<%= props.extension %> | tap-spec",
     "test": "npm run test-server && npm run test-browser",
     "tdd-server": "nodemon -x npm -i node_modules/ -- run test-server",
-    "tdd-browser": "smokestack-watch test/*<%= props.extension %> -t babelify | tap-spec",<% } %><% if (props.isBrowser && !props.isServer) { %>"test": "browserify -t babelify test/test<%= props.extension %> | tap-closer | smokestack -b chrome | tap-spec",
-    "tdd": "smokestack-watch test/*<%= props.extension %> -t babelify | tap-spec",<% } %><% if (props.isServer || props.isCLI && !props.isBrowser) { %>"test": "babel-node test/*<%= props.extension %> | tap-spec",
+    "tdd-browser": "smokestack-watch test/*<%= props.extension %> -t babelify | tap-spec",<% } %><% if (props.isBrowser && !props.isServer) { %>
+    "test": "browserify -t babelify test/test<%= props.extension %> | tap-closer | smokestack -b chrome | tap-spec",
+    "tdd": "smokestack-watch test/*<%= props.extension %> -t babelify | tap-spec",<% } %><% if (props.isServer || props.isCLI && !props.isBrowser) { %>
+    "test": "babel-node test/*<%= props.extension %> | tap-spec",
     "tdd": "nodemon -x npm -i node_modules/ -- run test-server",<% } %>
     "note1": "we can't have nice things. prepublish also runs on npm install https://github.com/npm/npm/issues/6394 in-publish hacks around this",
     "prepublish": "in-publish && npm prune && npm run gitPush || in-install",
