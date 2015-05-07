@@ -14,7 +14,7 @@ if [ $(echo "$(sort --version | grep '(GNU' | awk 'NF>1{print $NF}') > 7" | bc) 
 fi
 
 function lint(){
-  eslint --no-eslintrc --config .eslintrc ${@-.} --ext .jsx --ext .js --ext .es6
+  eslint --no-eslintrc --config .eslintrc "${@-.}" --ext .jsx --ext .js --ext .es6
 }
 
 function git_require_clean_work_tree(){
