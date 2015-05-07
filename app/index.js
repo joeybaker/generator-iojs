@@ -91,49 +91,49 @@ module.exports = yeoman.generators.Base.extend({
       , {
         name: 'githubUsername'
         , message: 'GitHub username'
-        , default: getUsername.sync()
+        , 'default': getUsername.sync()
         , store: true
       }
       , {
         name: 'authorName'
         , message: 'Author\'s Name'
-        , default: npm.config.get('init.author.name') || fullname
+        , 'default': npm.config.get('init.author.name') || fullname
         , store: true
       }
       , {
         name: 'authorEmail'
         , message: 'Author\'s Email'
-        , default: npm.config.get('init.author.email')
+        , 'default': npm.config.get('init.author.email')
         , store: true
       }
       , {
         name: 'authorUrl'
         , message: 'Author\'s Homepage'
-        , default: npm.config.get('init.author.site')
+        , 'default': npm.config.get('init.author.site')
         , store: true
       }
       , {
         name: 'isServer'
         , message: 'Is this a node module? (Will it run on the server)'
         , type: 'confirm'
-        , default: true
+        , 'default': true
       }
       , {
         name: 'isBrowser'
         , message: 'Will this run in the browser?'
         , type: 'confirm'
-        , default: true
+        , 'default': true
       }
       , {
         name: 'isCLI'
         , message: 'Will have a CLI API?'
         , type: 'confirm'
-        , default: false
+        , 'default': false
       }
       , {
         name: 'extension'
         , message: 'Default extension?'
-        , default: '.js'
+        , 'default': '.js'
       }]
 
       this.currentYear = (new Date()).getFullYear()

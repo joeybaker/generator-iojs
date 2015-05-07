@@ -6,7 +6,7 @@ var path = require('path')
   , fs = require('fs')
   , testDir = path.join(__dirname, 'temp')
 
-test('iojs generator creation', function creationTest(t){
+test('iojs generator creation', function creationTest (t) {
   var promptAnswers = {
       name: 'mymodule'
       , description: 'awesome module'
@@ -21,7 +21,7 @@ test('iojs generator creation', function creationTest(t){
     }
     , runTests
 
-  runTests = function runTests(){
+  runTests = function runTests () {
       var expected = [
         'package.json'
         , '.editorconfig'
@@ -40,26 +40,24 @@ test('iojs generator creation', function creationTest(t){
       // 3 assertations + the count of files we expect
       t.plan(3 + expected.length)
 
-      fs.readdir(testDir, function filesInTestDir(err, files){
+      fs.readdir(testDir, function filesInTestDir (err, files) {
         t.error(err, 'should be able to read the test dir')
 
-        expected.forEach(function forEachExpectedFile(file){
+        expected.forEach(function forEachExpectedFile (file) {
           t.ok(
             files.indexOf(file) > -1
             , 'outputs ' + file
           )
         })
-
       })
 
-      fs.readFile(path.join(testDir, 'package.json'), function readPackageJson(err, file){
+      fs.readFile(path.join(testDir, 'package.json'), function readPackageJson (err, file) {
         t.error(err, 'should be able to read the package.json')
         t.ok(
            /"name": "mymodule"/.test(file.toString())
           , 'adds the module name to package.json'
         )
       })
-
     }
 
   helpers.run(path.join(__dirname, '..', 'app', 'index.js'))

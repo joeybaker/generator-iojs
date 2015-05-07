@@ -214,7 +214,7 @@
     "space-before-blocks": 0,
     "space-before-function-paren": [
       1,
-      "never"
+      "always"
     ],
     "space-in-brackets": [
       1,

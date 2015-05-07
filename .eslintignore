@@ -1,1 +1,2 @@
-app/templates/test/test.js
+app/templates/*
+test/temp/*
