@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.4.1 | 2015-05-07
+* script: probably a better way of launching editor
+* script: linter #cleanup
+
 ## v2.4.0 | 2015-05-07
 * add: better default CLI template
 * add: test is now es6
@@ -240,6 +244,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
