@@ -79,6 +79,10 @@ module.exports = yeoman.generators.Base.extend({
         , message: 'Homepage'
       }
       , {
+        name: 'keywords'
+        , message: 'Key your keywords (comma to split)'
+      }
+      , {
         name: 'license'
         , message: 'License'
         , 'default': 'Artistic 2.0'
@@ -109,12 +113,8 @@ module.exports = yeoman.generators.Base.extend({
         , store: true
       }
       , {
-        name: 'keywords'
-        , message: 'Key your keywords (comma to split)'
-      }
-      , {
         name: 'isServer'
-        , message: 'Will this run on the server?'
+        , message: 'Is this a node module? (Will it run on the server)'
         , type: 'confirm'
         , default: true
       }
@@ -126,7 +126,7 @@ module.exports = yeoman.generators.Base.extend({
       }
       , {
         name: 'isCLI'
-        , message: 'Will this run in the shell?'
+        , message: 'Will have a CLI API?'
         , type: 'confirm'
         , default: false
       }
