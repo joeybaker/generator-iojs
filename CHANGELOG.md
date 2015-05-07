@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.4.2 | 2015-05-07
+* eslint is not configured now browser-env aware
+
 ## v2.4.1 | 2015-05-07
 * script: probably a better way of launching editor
 * script: linter #cleanup
@@ -244,6 +247,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
