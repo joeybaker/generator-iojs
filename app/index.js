@@ -195,7 +195,7 @@ module.exports = yeoman.generators.Base.extend({
     this.template('test/test.js', 'test/test' + this.props.extension)
     if (this.props.isCLI) {
       mkdirp(path.join(cwd, 'bin'))
-      this.copy('bin/cli', 'bin/' + this.repoName)
+      this.template('bin/cli', 'bin/' + this.repoName)
     }
   }
 

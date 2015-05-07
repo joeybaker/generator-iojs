@@ -1,3 +1,22 @@
 #!/usr/bin/env node
 
-require('../')()
+var minimist = require('minimist')
+  , argv = minimist(process.argv.splice(2))
+
+if (argv.h || argv.help || !argv._.length) {
+  console.info([
+    '<%= props.description %>'
+    , ''
+    , 'Usage:'
+    , ''
+    , 'Options:'
+    , ''
+    , '  -h, --help   show this help'
+  ].join('\n'))
+  /* eslint-disable no-process-exit */
+  process.exit(1)
+  /* eslint-enable no-process-exit */
+}
+
+
+require('../index.es5')()
