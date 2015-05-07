@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.2.2 | 2015-05-07
+* package.json: fix line spacing errors
+* es5 build: ensure we build in a prod env
+* sh: linter fix
+
 ## v2.2.1 | 2015-05-05
 * Ensure GNU sort is in the PATH
 
@@ -226,6 +231,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
