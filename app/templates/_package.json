@@ -32,9 +32,11 @@
     "note2": "eslint will always pull from the global eslintrc file, disable that so that we're only looking at the local",
     "note3": "travis doesn't play nicely with !#/bin/bash in the script file, so we have to explicitly set bash",
     "lint": "/bin/bash -c 'source ./scripts.sh && lint'",
+    "note4": "the diff-filter option below gets all files but deleted ones",
+    "lint-staged": "git diff --diff-filter=ACMRTUXB --cached --name-only | grep '.*\\.<%= props.extension %>$' | grep -v 'node_modules' | xargs eslint --ext .js --ext <%= props.extension %>",
     "requireGitClean": "/bin/bash -c 'source ./scripts.sh && git_require_clean_work_tree'",
     "nsp": "nsp audit-package",
-    "note4": "--no-verify skips the commit hook",
+    "note5": "--no-verify skips the commit hook",
     "dmn": "dmn gen -f . && if [[ $(git diff --shortstat 2> /dev/null | tail -n1) != '' ]]; then git add .npmignore && git commit --no-verify -m'update npmignore'; fi",
     "doctoc": "doctoc README.md && if [ -f CONTRIBUTING.md ]; then doctoc CONTRIBUTING.md; fi && if [[ $(git diff --shortstat 2> /dev/null | tail -n1) != '' ]]; then git add README.md CONTRIBUTING.md && git commit --no-verify -m'table of contents update'; fi",
     "gitPull": "git pull --rebase origin master",
@@ -45,7 +47,7 @@
   "config": {
     "notes": "important to correct the path of npm so that the git hook doesn't error",
     "ghooks": {
-      "pre-commit": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm run lint",
+      "pre-commit": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm run lint-staged",
       "pre-push": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm run dmn && npm run doctoc && npm run lint && npm test",
       "update": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm install"
     }
