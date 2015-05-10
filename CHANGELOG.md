@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.6.0 | 2015-05-10
+* add: npm_release can now set access level
+* fix: misc typos that caused various template bugs
+* fix: repoName can’t contain @
+* dev: add many more tests
+
 ## v2.5.0 | 2015-05-09
 * fix: git commit hook now only lints staged files
 
@@ -250,6 +256,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
