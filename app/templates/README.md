@@ -29,7 +29,7 @@ npm i -S <%= slugname %>
 ```js
 import <%= props.safeSlugname %> from '<%= slugname %>'
 
-<%= props.saveSlugname %>('Rainbow')
+<%= props.safeSlugname %>('Rainbow')
 ```
 
 ## Methods
