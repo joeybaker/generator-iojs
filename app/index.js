@@ -145,7 +145,7 @@ module.exports = yeoman.generators.Base.extend({
         }).join('-')
 
         if (props.githubUsername){
-          this.repoUrl = props.githubUsername + '/' + this.repoName
+          this.repoUrl = props.githubUsername + '/' + this.repoName.replace('@', '')
         }
         else {
           this.repoUrl = 'user/repo'
