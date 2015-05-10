@@ -88,8 +88,8 @@ function git_ammend_tag(){
 }
 
 function npm_release(){
-  local publish_cmd="npm publish --access ${1-public}"
+  local access="${1-public}"
   local version="${2-patch}"
 
-  npm version "$version" && generate_git_changelog && git_ammend_tag && npm run gitPush && publish_cmd
+  npm version "$version" && generate_git_changelog && git_ammend_tag && npm run gitPush && npm publish --access "$access"
 }
