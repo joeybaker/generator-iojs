@@ -1,4 +1,4 @@
-# <%= props.name %> [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
+# <%= repoName %> <% if (!props.isPrivate) { %>[![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-url]][daviddm-image]<% } %> [![Build Status][travis-image]][travis-url]
 
 <%= props.description %>
 

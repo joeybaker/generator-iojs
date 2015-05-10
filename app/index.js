@@ -134,6 +134,13 @@ module.exports = yeoman.generators.Base.extend({
         name: 'extension'
         , message: 'Default extension?'
         , 'default': '.js'
+      }
+      , {
+        name: 'isPrivate'
+        , message: 'Is this a private module?'
+        , store: true
+        , type: 'confirm'
+        , 'default': true
       }]
 
       this.currentYear = (new Date()).getFullYear()
@@ -157,6 +164,8 @@ module.exports = yeoman.generators.Base.extend({
           })
           .filter(Boolean)
           .sort()
+
+        this.publicness = props.isPrivate ? 'private' : 'public'
 
         props.extension = props.extension.trim()
         if (props.extension.indexOf('.') !== 0) {
