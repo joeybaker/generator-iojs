@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.6.1 | 2015-05-10
+* fix: publishing #oops
+
 ## v2.6.0 | 2015-05-10
 * add: npm_release can now set access level
 * fix: misc typos that caused various template bugs
@@ -256,6 +259,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
