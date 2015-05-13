@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.6.2 | 2015-05-13
+* fix: npm private access is “restricted”
+
 ## v2.6.1 | 2015-05-10
 * fix: publishing #oops
 
@@ -259,6 +262,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
