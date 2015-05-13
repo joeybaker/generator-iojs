@@ -165,7 +165,7 @@ module.exports = yeoman.generators.Base.extend({
           .filter(Boolean)
           .sort()
 
-        this.publicness = props.isPrivate ? 'private' : 'public'
+        this.publicness = props.isPrivate ? 'restricted' : 'public'
 
         props.extension = props.extension.trim()
         if (props.extension.indexOf('.') !== 0) {

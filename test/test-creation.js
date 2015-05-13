@@ -92,7 +92,7 @@ test('iojs generator creation: defaults', function creationTest (t) {
           , 'adds a `tdd-server` script'
         )
         t.ok(
-           /npm_release private/.test(pkgContents)
+           /npm_release restricted/.test(pkgContents)
           , 'passes the access level to npm_run'
         )
       })
