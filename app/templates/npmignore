@@ -14,5 +14,5 @@ CHANGELOG.*
 scripts.sh
 npm-debug.log
 .DS_Store
-.eslintrc
-*<%= props.extension %>
+.eslintrc<% if (props.isEs6) { %>
+*<%= props.extension %><% } %>

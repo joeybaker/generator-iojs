@@ -159,3 +159,45 @@ test('iojs generator creation: CLI only', function creationTest (t) {
     .withPrompts(promptAnswers)
     .on('end', runTests)
 })
+
+test('iojs generator creation: no es6', function creationTest (t) {
+  var promptAnswers = _.clone(defaultProptAnswers)
+    , runTests
+
+  promptAnswers.isEs6 = false
+
+  runTests = function runTests () {
+      var expected = _.clone(defaultExpectedFiles)
+
+      // assertations + the count of files we expect
+      t.plan(6 + expected.length)
+
+      assertFilesInDir(t, testDir, expected)
+
+      fs.readFile(path.join(testDir, 'package.json'), function readPackageJson (err, file) {
+        var pkgContents = file.toString()
+        t.error(err, 'should be able to read the package.json')
+        t.ok(
+          /"start": "node index/.test(pkgContents)
+          , 'uses node, not babel to start'
+        )
+        t.notOk(
+           /"build-es5":/.test(pkgContents)
+          , 'does not add a build script'
+        )
+        t.notOk(
+           /"watch":/.test(pkgContents)
+          , 'does not add a watch script'
+        )
+        t.ok(
+          new RegExp('"main": "index' + defaultProptAnswers.extension).test(pkgContents)
+          , 'does not change the main extension to .es5'
+        )
+      })
+    }
+
+  helpers.run(path.join(__dirname, '..', 'app', 'index.js'))
+    .inDir(testDir)
+    .withPrompts(promptAnswers)
+    .on('end', runTests)
+})

@@ -113,6 +113,12 @@ module.exports = yeoman.generators.Base.extend({
         , store: true
       }
       , {
+        name: 'isEs6'
+        , message: 'Will you use ES6 or JSX?'
+        , type: 'confirm'
+        , 'default': true
+      }
+      , {
         name: 'isServer'
         , message: 'Is this a node module? (Will it run on the server)'
         , type: 'confirm'

@@ -16,17 +16,17 @@
     "<%= keywords.join('",\n    "') %>"
   ],
   "scripts": {<% if (props.isServer) { %>
-    "start": "babel-node index<%= props.extension %>",<% } %><% if (props.isServerAndBrowser) { %>
-    "test-browser": "browserify -t babelify test/test<%= props.extension %> | tap-closer | smokestack -b chrome | tap-spec",
-    "test-server": "babel-node test/*<%= props.extension %> | tap-spec",
+    "start": "<% if (props.isEs6) { %>babel-node<% } else { %>node<% } %> index<%= props.extension %>",<% } %><% if (props.isServerAndBrowser) { %>
+    "test-browser": "browserify <% if (props.isEs6) { %>-t babelify<% } %> test/test<%= props.extension %> | tap-closer | smokestack -b chrome | tap-spec",
+    "test-server": "<% if (props.isEs6) { %>babel-node<% } else { %>node<% } %> test/*<%= props.extension %> | tap-spec",
     "test": "npm run test-server && npm run test-browser",
     "tdd-server": "nodemon -x npm -i node_modules/ -- run test-server",
-    "tdd-browser": "smokestack-watch test/*<%= props.extension %> -t babelify | tap-spec",<% } %><% if (props.isBrowser && !props.isServer) { %>
-    "test": "browserify -t babelify test/test<%= props.extension %> | tap-closer | smokestack -b chrome | tap-spec",
-    "tdd": "smokestack-watch test/*<%= props.extension %> -t babelify | tap-spec",<% } %><% if (props.isServer || props.isCLI && !props.isBrowser) { %>
-    "test": "babel-node test/test<%= props.extension %> | tap-spec",
-    "tdd": "nodemon -x npm -i node_modules/ -- run test",
-    "watch": "babel index.js --watch --out-file index.es5",<% } %>
+    "tdd-browser": "smokestack-watch test/*<%= props.extension %> <% if (props.isEs6) { %>-t babelify<% } %> | tap-spec",<% } %><% if (props.isBrowser && !props.isServer) { %>
+    "test": "browserify <% if (props.isEs6) { %>-t babelify<% } %> test/test<%= props.extension %> | tap-closer | smokestack -b chrome | tap-spec",
+    "tdd": "smokestack-watch test/*<%= props.extension %> <% if (props.isEs6) { %>-t babelify<% } %> | tap-spec",<% } %><% if (props.isServer || props.isCLI && !props.isBrowser) { %>
+    "test": "<% if (props.isEs6) { %>babel-node<% } else { %>node<% } %> test/test<%= props.extension %> | tap-spec",
+    "tdd": "nodemon -x npm -i node_modules/ -- run test",<% if (props.isEs6) { %>
+    "watch": "babel index.js --watch --out-file index.es5",<% } %><% } %>
     "note1": "we can't have nice things. prepublish also runs on npm install https://github.com/npm/npm/issues/6394 in-publish hacks around this",
     "prepublish": "in-publish && npm prune && npm run gitPush || in-install",
     "note2": "eslint will always pull from the global eslintrc file, disable that so that we're only looking at the local",
@@ -38,11 +38,11 @@
     "nsp": "nsp audit-package",
     "note5": "--no-verify skips the commit hook",
     "dmn": "dmn gen -f . && if [[ $(git diff --shortstat 2> /dev/null | tail -n1) != '' ]]; then git add .npmignore && git commit --no-verify -m'update npmignore'; fi",
-    "doctoc": "doctoc README.md && if [ -f CONTRIBUTING.md ]; then doctoc CONTRIBUTING.md; fi && if [[ $(git diff --shortstat 2> /dev/null | tail -n1) != '' ]]; then git add README.md CONTRIBUTING.md && git commit --no-verify -m'table of contents update'; fi",
+    "doctoc": "doctoc README.md && if [ -f CONTRIBUTING.md ]; then doctoc CONTRIBUTING.md; fi && if [[ $(git diff --shortstat -- README.md 2> /dev/null | tail -n1) != '' || $(git diff --shortstat -- CONTRIBUTING.md 2> /dev/null | tail -n1) != '' ]]; then git add README.md CONTRIBUTING.md && git commit --no-verify -m'table of contents update'; fi",
     "gitPull": "git pull --rebase origin master",
-    "gitPush": "git push --follow-tags --no-verify && git push --tags --no-verify",
-    "build-es5": "NODE_ENV=production && babel index<%= props.extension %> > index.es5",
-    "release": "f () { source ./scripts.sh && npm run requireGitClean && npm run gitPull && npm run dmn && npm run doctoc && npm run build-es5 && npm run lint && npm test && npm_release <%= publicness %> $@; }; f"
+    "gitPush": "git push --follow-tags --no-verify && git push --tags --no-verify",<% if (props.isEs6) { %>
+    "build-es5": "NODE_ENV=production && babel index<%= props.extension %> > index.es5",<% } %>
+    "release": "f () { source ./scripts.sh && npm run requireGitClean && npm run gitPull && npm run dmn && npm run doctoc <% if (props.isEs6) { %>&& npm run build-es5 <% } %>&& npm run lint && npm test && npm_release <%= publicness %> $@; }; f"
   },
   "config": {
     "notes": "important to correct the path of npm so that the git hook doesn't error",
@@ -52,18 +52,18 @@
       "update": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm install"
     }
   },
-  "main": "index.es5",<% if (props.isBrowser) { %>
-  "browser": "index.es5",<% } %><% if (props.isCLI) { %>
+  "main": "index<% if (props.isEs6) { %>.es5<% } else { %><%= props.extension %><% } %>",<% if (props.isBrowser) { %>
+  "browser": "index<% if (props.isEs6) { %>.es5<% } else { %><%= props.extension %><% } %>",<% } %><% if (props.isCLI) { %>
   "bin": {
     "<%= repoName %>": "bin/<%= repoName %>"
   },<% } %>
-  "devDependencies": {
-    "babel": "^5.2.9",<% if (props.isBrowser) { %>
-    "babelify": "^6.0.2",
+  "devDependencies": {<% if (props.isEs6) { %>
+    "babel": "^5.2.9",<% } %><% if (props.isBrowser) { %><% if (props.isEs6) { %>
+    "babelify": "^6.0.2",<% } %>
     "browserify": "^9.0.8",<% } %>
     "dmn": "^1.0.5",
     "doctoc": "^0.13.0",
-    "eslint": "^0.20.0",<% if (props.isBrowser) { %>
+    "eslint": "^0.20.0",<% if (props.isBrowser && props.isEs6) { %>
     "eslint-plugin-react": "^2.0.0",<% } %>
     "ghooks": "^0.3.2",
     "in-publish": "^1.1.1",<% if (props.isServer || props.isCLI) { %>
