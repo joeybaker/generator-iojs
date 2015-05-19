@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.7.0 | 2015-05-19
+* add: es6 opt-in fixes #26
+* fix: install latest npm on travis
+
 ## v2.6.2 | 2015-05-13
 * fix: npm private access is “restricted”
 
@@ -262,6 +266,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
