@@ -58,7 +58,8 @@
     "<%= repoName %>": "bin/<%= repoName %>"
   },<% } %>
   "devDependencies": {<% if (props.isEs6) { %>
-    "babel": "^5.2.9",<% } %><% if (props.isBrowser) { %><% if (props.isEs6) { %>
+    "babel": "^5.2.9",
+    "babel-plugin-closure-elimination": "^0.0.1",<% } %><% if (props.isBrowser) { %><% if (props.isEs6) { %>
     "babelify": "^6.0.2",<% } %>
     "browserify": "^9.0.8",<% } %>
     "dmn": "^1.0.5",

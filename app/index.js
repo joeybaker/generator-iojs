@@ -195,6 +195,10 @@ module.exports = yeoman.generators.Base.extend({
     this.copy('scripts.sh', 'scripts.sh')
     this.copy('travis.yml', '.travis.yml')
 
+    if (this.props.isEs6) {
+      this.copy('babelrc', '.babelrc')
+    }
+
     this.template('eslintrc', '.eslintrc')
     this.template('npmignore', '.npmignore')
     this.template('README.md', 'README.md')

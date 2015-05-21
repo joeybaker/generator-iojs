@@ -25,6 +25,7 @@ var path = require('path')
     }
   , defaultExpectedFiles = [
       'package.json'
+      , '.babelrc'
       , '.editorconfig'
       , '.eslintrc'
       , '.gitignore'
@@ -63,7 +64,7 @@ test('iojs generator creation: defaults', function creationTest (t) {
         , expectedInTest = ['test.js']
 
       // 4 assertations + the count of files we expect
-      t.plan(9 + expected.length + expectedInTest.length)
+      t.plan(10 + expected.length + expectedInTest.length)
 
       assertFilesInDir(t, testDir, expected)
       assertFilesInDir(t, path.join(testDir, 'test'), expectedInTest)
@@ -94,6 +95,10 @@ test('iojs generator creation: defaults', function creationTest (t) {
         t.ok(
            /npm_release restricted/.test(pkgContents)
           , 'passes the access level to npm_run'
+        )
+        t.ok(
+           /"babel-plugin-closure-elimination":/.test(pkgContents)
+          , 'includes the closure-elimination plugin'
         )
       })
     }
@@ -168,6 +173,7 @@ test('iojs generator creation: no es6', function creationTest (t) {
 
   runTests = function runTests () {
       var expected = _.clone(defaultExpectedFiles)
+      expected.splice(expected.indexOf('.babelrc'), 1)
 
       // assertations + the count of files we expect
       t.plan(6 + expected.length)
