@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.9.0 | 2015-05-21
+* add: use yargs for CLI – it’s pretty sweet.
+
 ## v2.8.0 | 2015-05-21
 * add: babel-plugin-closure-elimination plugin
 * docs: table of contents update
@@ -273,6 +276,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
