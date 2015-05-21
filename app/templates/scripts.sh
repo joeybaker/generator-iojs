@@ -86,7 +86,7 @@ function git_ammend_tag(){
   local changes=$(git diff --minimal --diff-filter=M --unified=0 --color=never $changelog_file | grep '^\+' | egrep -v '^\+\+' | cut -c 2-)
   git add "$changelog_file"
   git commit --amend --no-edit --no-verify
-  git tag "$(find_last_git_tag)" -f -a -m $changes
+  git tag "$(find_last_git_tag)" -f -a -m "$changes"
 }
 
 function npm_release(){
