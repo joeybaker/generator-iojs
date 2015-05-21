@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.8.0 | 2015-05-21
+* add: babel-plugin-closure-elimination plugin
+* docs: table of contents update
+* docs: add descriptions for all the generated files
+* docs: minor description cleanup
+* internal: update deps
+
 ## v2.7.0 | 2015-05-19
 * add: es6 opt-in fixes #26
 * fix: install latest npm on travis
@@ -266,6 +273,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
