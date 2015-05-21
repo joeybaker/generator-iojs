@@ -1,6 +1,6 @@
 # Yoeman Generator for Node projects [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
 
-A basic node module template, that includes handy git hooks, a release script, and auto-changelog generation.
+A basic module template, that includes handy git hooks, a release script, es{6,2015} support via babel, and auto-changelog generation.
 
 Here's what you get:
 
