@@ -1,22 +1,12 @@
 #!/usr/bin/env node
 
-var minimist = require('minimist')
-  , argv = minimist(process.argv.splice(2))
+var argv = require('yargs')<% if (props.description) { %>
+  .usage('<%= props.description %>')<% } %>
+  .help('h')
+  .alias('h', 'help')
+  .epilog('License: <%= props.license %>')
+  .version(require('../package.json').version)
+  .showHelpOnFail(false, "Specify --help for available options")
+  .argv
 
-if (argv.h || argv.help || !argv._.length) {
-  console.info([
-    '<%= props.description %>'
-    , ''
-    , 'Usage:'
-    , ''
-    , 'Options:'
-    , ''
-    , '  -h, --help   show this help'
-  ].join('\n'))
-  /* eslint-disable no-process-exit */
-  process.exit(1)
-  /* eslint-enable no-process-exit */
-}
-
-
-require('../index.es5')()
+require('../index.es5')(argv)

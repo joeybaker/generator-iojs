@@ -123,8 +123,8 @@ test('iojs generator creation: CLI only', function creationTest (t) {
         , expectedInBin = [promptAnswers.name]
       expected.push('bin')
 
-      // 4 assertations + the count of files we expect
-      t.plan(9 + expected.length + expectedInBin.length)
+      // assertations + the count of files we expect
+      t.plan(13 + expected.length + expectedInBin.length)
 
       assertFilesInDir(t, testDir, expected)
       assertFilesInDir(t, path.join(testDir, 'bin'), expectedInBin)
@@ -148,6 +148,10 @@ test('iojs generator creation: CLI only', function creationTest (t) {
            /"tdd":/.test(pkgContents)
           , 'adds a `tdd` script'
         )
+        t.ok(
+          /"yargs"/.test(pkgContents)
+          , 'install yargs'
+        )
         t.notOk(
            /"tdd-server":/.test(pkgContents)
           , 'does not add a `tdd-server` script'
@@ -155,6 +159,22 @@ test('iojs generator creation: CLI only', function creationTest (t) {
         t.notOk(
            /"tdd-browser":/.test(pkgContents)
           , 'does not add a `tdd-browser` script'
+        )
+      })
+
+      fs.readFile(path.join(testDir, 'bin', promptAnswers.name), function readPackageJson (err, file) {
+        var cliContents
+        t.error(err, 'should be able to read the bin script')
+        cliContents = file.toString()
+
+        t.ok(
+           cliContents.indexOf('.usage(\'' + promptAnswers.description + '\')') > -1
+          , 'adds the description to usage'
+        )
+
+        t.ok(
+           cliContents.indexOf('.epilog(\'License: ' + promptAnswers.license + '\')') > -1
+          , 'adds the license to epilog'
         )
       })
     }

@@ -75,6 +75,7 @@
     "smokestack-watch": "^0.4.1",
     "tap-closer": "^1.0.0",<% } %>
     "tap-spec": "^3.0.0",
-    "tape": "^4.0.0"
+    "tape": "^4.0.0"<% if (props.isCLI) { %>,
+    "yargs": "^3.9.1"<% } %>
   }
 }
