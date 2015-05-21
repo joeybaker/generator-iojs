@@ -32,10 +32,10 @@
   },
   "license": "Artistic-2.0",
   "devDependencies": {
-    "covert": "^1.0.1",
-    "dmn": "^1.0.5",
+    "covert": "^1.1.0",
+    "dmn": "^1.0.10",
     "doctoc": "^0.13.0",
-    "eslint": "^0.20.0",
+    "eslint": "^0.21.2",
     "ghooks": "^0.3.2",
     "in-publish": "^1.1.1",
     "nodemon": "^1.3.7",
@@ -65,11 +65,11 @@
   "homepage": "https://github.com/joeybaker/generator-iojs",
   "dependencies": {
     "fullname": "^1.1.0",
-    "lodash": "^3.7.0",
-    "mkdirp": "^0.5.0",
+    "lodash": "^3.9.1",
+    "mkdirp": "^0.5.1",
     "npm-name": "^1.0.4",
     "username": "^1.0.0",
-    "yeoman-generator": "^0.19.1"
+    "yeoman-generator": "^0.20.1"
   },
   "files": [
     "app"
