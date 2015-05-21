@@ -19,11 +19,27 @@ Here's what you get:
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Install](#install)
-- [Usage](#usage)
-- [Developing](#developing)
-- [Tests](#tests)
-  - [Requirements](#requirements)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [What Everything Does](#what-everything-does)
+    - [`.babelrc`](#babelrc)
+    - [`.editorconfig`](#editorconfig)
+    - [`.gitignore`](#gitignore)
+    - [`.eslintrc`](#eslintrc)
+    - [`.npmignore`](#npmignore)
+    - [`.npmrc`](#npmrc)
+    - [`.travis.yml`](#travisyml)
+    - [`README.md`](#readmemd)
+    - [`LICENSE`](#license)
+    - [`CHANGELOG.md`](#changelogmd)
+    - [`CONTRIBUTING.md`](#contributingmd)
+    - [`package.json`](#packagejson)
+    - [`index.js`](#indexjs)
+    - [`test/test.js`](#testtestjs)
+    - [`bin/<module name>`](#binmodule-name)
+  - [Developing](#developing)
+  - [Tests](#tests)
+    - [Requirements](#requirements)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
