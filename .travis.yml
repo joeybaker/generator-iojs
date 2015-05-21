@@ -13,4 +13,8 @@ notifications:
 sudo: false
 
 before_install:
- - "npm install -g npm@latest"
+  - "npm install -g npm@latest"
+
+# so that travis doesn't complain about a missing npm
+before_script:
+  - npm link npm
