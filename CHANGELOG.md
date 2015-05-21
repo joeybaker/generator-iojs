@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.9.1 | 2015-05-21
+* fix: eslint won’t use es6 if disabled
+
 ## v2.9.0 | 2015-05-21
 * add: use yargs for CLI – it’s pretty sweet.
 
@@ -276,6 +279,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
