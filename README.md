@@ -19,11 +19,11 @@ Here's what you get:
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Developing](#developing)
-  - [Tests](#tests)
-    - [Requirements](#requirements)
+- [Install](#install)
+- [Usage](#usage)
+- [Developing](#developing)
+- [Tests](#tests)
+  - [Requirements](#requirements)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -36,6 +36,52 @@ Here's what you get:
 ```sh
 yo iojs
 ```
+
+## What Everything Does
+### `.babelrc`
+As long as you haven't turned off es6 (and why would you!?), this file is created to configure Babel, the es6 compiler. By default, it includes a [closure-elimination](https://github.com/codemix/babel-plugin-closure-elimination) plugin. This makes the compiled code faster!
+
+### `.editorconfig`
+[The Editor Config standard](http://editorconfig.org/) enforces very basic white space rules in files.
+
+### `.gitignore`
+Ever accidentally commit `.DS_Store` to git? There are a bunch of defaults here that you almost certainly don't want to commit.
+
+### `.eslintrc`
+Linters are good! They save you from making silly mistakes. This is a fairly opinionated linter setup, but it catches you from many silly errors. The linter will be run before every commit and before every release.
+
+### `.npmignore`
+What you commit to git and what you publish to npm don't need to be the same thing. Just like you wouldn't commit compiled files to git, you don't want to send unnecessary files to npm. When others `npm install` your module, they don't need all your tests or source files. These defaults strip out everything but what people really need when they install your module. It's kept up-to-date semi-automatically with [dmn](https://www.npmjs.com/package/dmn).
+
+### `.npmrc`
+Local configuration for npm commands. Most of the time, when you're installing modules, you want to save them to `package.json`. This changes the default behavior of `npm install` to always be `npm install --save`. `--save-dev` overrides this and works as normal.
+
+### `.travis.yml`
+Tests are good. Automatically testing is even better. [travis](https://travis-ci.org/) is free for open source modules and is a good choice for a CI server. This file is configured to automatically test your code against node 0.10, 0.12, and iojs latest. It puts you into the faster build environment on travis.
+
+### `README.md`
+Without docs, no one (including you, 3 months from now) will be able to figure out how to use this thing you've built! This readme provides a decent structure for a readme. It includes a table of contents that is automatically updated when deploying a new version.
+
+### `LICENSE`
+[You should have a license](https://help.github.com/articles/open-source-licensing/)
+
+### `CHANGELOG.md`
+Changelogs are really important for open source projects, but they're a pain to maintain. This changelog will automatically get updated (but give you a chance to edit it) every time you run `npm run release`.
+
+### `CONTRIBUTING.md`
+A file for github! This will show a banner above the new issue and new PR screens. This file has a set of general rules.
+
+### `package.json`
+So much magic! This sets up your node module with good defaults, and installs a bunch of dev dependencies to make magic! There are many included scripts to make dev life easier. `npm run release` and `npm run tdd` are some favorites.
+
+### `index.js`
+Just dummy content for your new node module.
+
+### `test/test.js`
+Just a dummy test file.
+
+### `bin/<module name>`
+If you specified this module as a CLI module, this file gets created for you. It should be a light-weight wrapper around `index.js` so that you can use the module both from the CLI and programatically.
 
 ## Developing
 To publish, run `npm run release -- [{patch,minor,major}]`
