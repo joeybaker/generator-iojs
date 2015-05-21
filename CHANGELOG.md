@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.10.0 | 2015-05-21
+* add: run tests through babel-tape-runner
+* internal: fixing travis build
+
 ## v2.9.1 | 2015-05-21
 * fix: eslint won’t use es6 if disabled
 
@@ -279,6 +283,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
