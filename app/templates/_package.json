@@ -18,13 +18,13 @@
   "scripts": {<% if (props.isServer) { %>
     "start": "<% if (props.isEs6) { %>babel-node<% } else { %>node<% } %> index<%= props.extension %>",<% } %><% if (props.isServerAndBrowser) { %>
     "test-browser": "browserify <% if (props.isEs6) { %>-t babelify<% } %> test/test<%= props.extension %> | tap-closer | smokestack -b chrome | tap-spec",
-    "test-server": "<% if (props.isEs6) { %>babel-node<% } else { %>node<% } %> test/*<%= props.extension %> | tap-spec",
+    "test-server": "<% if (props.isEs6) { %>babel-tape-runner<% } else { %>tape<% } %> test/*<%= props.extension %> | tap-spec",
     "test": "npm run test-server && npm run test-browser",
     "tdd-server": "nodemon -x npm -i node_modules/ -- run test-server",
     "tdd-browser": "smokestack-watch test/*<%= props.extension %> <% if (props.isEs6) { %>-t babelify<% } %> | tap-spec",<% } %><% if (props.isBrowser && !props.isServer) { %>
     "test": "browserify <% if (props.isEs6) { %>-t babelify<% } %> test/test<%= props.extension %> | tap-closer | smokestack -b chrome | tap-spec",
     "tdd": "smokestack-watch test/*<%= props.extension %> <% if (props.isEs6) { %>-t babelify<% } %> | tap-spec",<% } %><% if (props.isServer || props.isCLI && !props.isBrowser) { %>
-    "test": "<% if (props.isEs6) { %>babel-node<% } else { %>node<% } %> test/test<%= props.extension %> | tap-spec",
+    "test": "<% if (props.isEs6) { %>babel-tape-runner<% } else { %>tape<% } %> test/test<%= props.extension %> | tap-spec",
     "tdd": "nodemon -x npm -i node_modules/ -- run test",<% if (props.isEs6) { %>
     "watch": "babel index.js --watch --out-file index.es5",<% } %><% } %>
     "note1": "we can't have nice things. prepublish also runs on npm install https://github.com/npm/npm/issues/6394 in-publish hacks around this",
@@ -59,7 +59,8 @@
   },<% } %>
   "devDependencies": {<% if (props.isEs6) { %>
     "babel": "^5.2.9",
-    "babel-plugin-closure-elimination": "^0.0.1",<% } %><% if (props.isBrowser) { %><% if (props.isEs6) { %>
+    "babel-plugin-closure-elimination": "^0.0.1",
+    "babel-tape-runner": "^1.1.0",<% } %><% if (props.isBrowser) { %><% if (props.isEs6) { %>
     "babelify": "^6.0.2",<% } %>
     "browserify": "^9.0.8",<% } %>
     "dmn": "^1.0.5",
