@@ -1,7 +1,7 @@
 {
   <% if (props.isBrowser) { %>"plugins": [
     "react"
-  ],<% } %>
+  ],<% } %><% if (props.isEs6) { %>
   "ecmaFeatures": {
     "arrowFunctions": true,
     "binaryLiterals": true,
@@ -24,12 +24,12 @@
     "unicodeCodePointEscapes": true,
     "globalReturn": true<% if (props.isBrowser) { %>,
     "jsx": true<% } %>
-  },
+  },<% } %>
   "env": {
     <% if (props.isBrowser) { %>"browser": true,
     <% } %>
-    "node": true,
-    "es6": true
+    "node": true,<% if (props.isEs6) { %>
+    "es6": true<% } %>
   },
   "rules": {
     "no-comma-dangle": 2,

@@ -196,13 +196,15 @@ test('iojs generator creation: no es6', function creationTest (t) {
       expected.splice(expected.indexOf('.babelrc'), 1)
 
       // assertations + the count of files we expect
-      t.plan(6 + expected.length)
+      t.plan(9 + expected.length)
 
       assertFilesInDir(t, testDir, expected)
 
       fs.readFile(path.join(testDir, 'package.json'), function readPackageJson (err, file) {
-        var pkgContents = file.toString()
+        var pkgContents
         t.error(err, 'should be able to read the package.json')
+        pkgContents = file.toString()
+
         t.ok(
           /"start": "node index/.test(pkgContents)
           , 'uses node, not babel to start'
@@ -218,6 +220,22 @@ test('iojs generator creation: no es6', function creationTest (t) {
         t.ok(
           new RegExp('"main": "index' + defaultProptAnswers.extension).test(pkgContents)
           , 'does not change the main extension to .es5'
+        )
+      })
+
+      fs.readFile(path.join(testDir, '.eslintrc'), function readPackageJson (err, file) {
+        var eslintrcContents
+        t.error(err, 'should be able to read the .eslintrc')
+        eslintrcContents = file.toString()
+
+        t.notOk(
+           /"es6": true/.test(eslintrcContents)
+          , 'does not enable es6 env'
+        )
+
+        t.notOk(
+           /"ecmaFeatures": \{/.test(eslintrcContents)
+          , 'does not enable ecmaFeatures'
         )
       })
     }
