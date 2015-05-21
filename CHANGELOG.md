@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.10.1 | 2015-05-21
+* trying to do annotated tags
+
 ## v2.10.0 | 2015-05-21
 * add: run tests through babel-tape-runner
 * internal: fixing travis build
@@ -283,6 +286,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
