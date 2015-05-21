@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.10.2 | 2015-05-21
+* more annotated tags
+
 ## v2.10.1 | 2015-05-21
 * trying to do annotated tags
 
@@ -286,6 +289,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
