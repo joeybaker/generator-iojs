@@ -3,17 +3,6 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-# ensure a modern version of sort is installed
-# get the version of sort, find the line that has the version number
-# get the last word with awk, which is the version number
-# if that version number is greater than 7, we're good,
-# else, we need to install coreutils
-# ensure the gnu version of sort is avaliable
-if [ $(PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH" && echo "$(sort --version | grep '(GNU' | awk 'NF>1{print $NF}') > 7" | bc) != 1 ]; then
-  echo "Installing coreutils to give you a modern shell experience"
-  brew install coreutils
-fi
-
 function lint(){
   eslint --no-eslintrc --config .eslintrc "${@-.}" --ext .jsx --ext .js --ext .es6
 }
@@ -35,8 +24,7 @@ function find_changelog_file(){
 }
 
 function find_last_git_tag(){
-  # ensure the gnu version of sort is avaliable
-  PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH" && git tag -l | sort -V | tail -n 1
+  node -pe "a=$(npm version); 'v' + a['$(npm show . name)']"
 }
 
 # based on https://github.com/tj/git-extras/blob/master/bin/git-changelog
