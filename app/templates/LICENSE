@@ -1,4 +1,4 @@
-Copyright (c) Joey Baker and Contributors
+Copyright (c) <%= props.authorName %> and Contributors
 All rights reserved.
 
 This code is released under the Artistic License 2.0.

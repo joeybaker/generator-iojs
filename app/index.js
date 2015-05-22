@@ -205,7 +205,7 @@ module.exports = yeoman.generators.Base.extend({
     this.template('_package.json', 'package.json')
     this.template('CONTRIBUTING.md', 'CONTRIBUTING.md')
     this.template('CHANGELOG.md', 'CHANGELOG.md')
-    this.copy('LICENSE', 'LICENSE')
+    this.template('LICENSE', 'LICENSE')
   }
 
   , projectfiles: function projectfiles () {
