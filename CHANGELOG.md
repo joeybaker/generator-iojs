@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.10.3 | 2015-05-22
+* fix: license author name now dynamic #oops
+* fix: license is now the right license #oops
+
 ## v2.10.2 | 2015-05-21
 * more annotated tags
 
@@ -289,6 +293,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
