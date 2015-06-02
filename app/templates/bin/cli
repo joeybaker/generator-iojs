@@ -6,7 +6,7 @@ var argv = require('yargs')<% if (props.description) { %>
   .alias('h', 'help')
   .epilog('License: <%= props.license %>')
   .version(require('../package.json').version)
-  .showHelpOnFail(false, "Specify --help for available options")
+  .showHelpOnFail(false, 'Specify --help for available options')
   .argv
 
 require('../index.es5')(argv)
