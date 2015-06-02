@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.10.5 | 2015-06-02
+* internal: linter #cleanup
+* fix: keywords in package.json #oops
+
 ## v2.10.4 | 2015-05-22
 * fix: script: remove need for sort
 * internal: script: linter #cleanup
@@ -297,6 +301,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
