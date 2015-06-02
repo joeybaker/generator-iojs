@@ -12,8 +12,8 @@
   "directories": {
     "test": "test"
   },
-  "keywords": [
-    "<%= keywords.join('",\n    "') %>"
+  "keywords": [<% for (var i = 0, l = keywords.length; i < l; i++) { %>
+    "<%= keywords[i] %>"<% if (i + 1 !== l) { %>,<% } %><% } %>
   ],
   "scripts": {<% if (props.isServer) { %>
     "start": "<% if (props.isEs6) { %>babel-node<% } else { %>node<% } %> index<%= props.extension %>",<% } %><% if (props.isServerAndBrowser) { %>
