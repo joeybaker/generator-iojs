@@ -27,9 +27,9 @@ npm i -S <%= slugname %>
 ## Usage
 
 ```js
-import <%= props.safeSlugname %> from '<%= slugname %>'
+import <%= safeSlugname %> from '<%= slugname %>'
 
-<%= props.safeSlugname %>('Rainbow')
+<%= safeSlugname %>('Rainbow')
 ```
 
 ## Methods
@@ -43,17 +43,14 @@ Emitted when x happens. Passes `myString` which is a y.
 ## Tests
 Tests are in [tape](https://github.com/substack/tape).
 
-<% if (props.isBrowserAndServer) { %>* `npm test` will run both server and browser tests
+<% if (props.isServerAndBrowser) { %>* `npm test` will run both server and browser tests
 * `npm run test-browser` and `npm run test-server` run their respective tests
 * `npm run tdd-server` will run the server tests on every file change.
-* `npm run tdd-browser` will run the browser tests on every file change.
-<% } %><% if (props.isBrowser && !props.isServer) { %>
+* `npm run tdd-browser` will run the browser tests on every file change.<% } %><% if (props.isBrowser && !props.isServer) { %>
 * `npm test` will run the tests in a browser
-* `npm run tdd` will run the tests in a browser on every file change.
-<% } %><% if (!props.isBrowser && (props.isServer || props.isCLI)) { %>
+* `npm run tdd` will run the tests in a browser on every file change.<% } %><% if (!props.isBrowser && (props.isServer || props.isCLI)) { %>
 * `npm test` will run the tests
-* `npm run tdd` will run the tests on every file change.
-<% } %>
+* `npm run tdd` will run the tests on every file change.<% } %>
 
 ## Developing
 To publish, run `npm run release -- [{patch,minor,major}]`
