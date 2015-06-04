@@ -85,8 +85,9 @@ module.exports = yeoman.generators.Base.extend({
       , {
         name: 'license'
         , message: 'License'
-        , 'default': 'Artistic 2.0'
+        , 'default': 'Artistic-2.0'
         , store: true
+        // TODO: present options from https://spdx.org/licenses/
       }
       , {
         name: 'githubUsername'
