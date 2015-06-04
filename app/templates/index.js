@@ -1,5 +1,5 @@
-'use strict'
-
-exports.get = function get(str){
+const get = function get (str) {
   console.log(str || 'Rainbow')
 }
+
+export get
