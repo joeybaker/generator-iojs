@@ -24,7 +24,7 @@ function find_changelog_file(){
 }
 
 function find_last_git_tag(){
-  node -pe "a=$(npm version); 'v' + a['$(npm show . name)']"
+  node -pe "a=$(npm version); 'v' + a[require('./package.json').name]"
 }
 
 # based on https://github.com/tj/git-extras/blob/master/bin/git-changelog
