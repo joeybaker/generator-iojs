@@ -66,7 +66,7 @@ _NOTE: you might need to `sudo ln -s /usr/local/bin/node /usr/bin/node` to ensur
 
 ## License
 
-Artistic 2.0 © <% if (props.authorUrl) { %>[<%= props.authorName %>](<%= props.authorUrl %>)<% } else { %><%= props.authorName %><% } %>
+Artistic 2.0 © <% if (props.authorUrl) { %>[<%= props.authorName %>](<%= props.authorUrl %>)<% } else { %><%= props.authorName %><% } %> and contributors. A copy of the license can be found in the file `LICENSE`.
 
 
 [npm-url]: https://npmjs.org/package/<%= slugname %>
