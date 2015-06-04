@@ -1,11 +1,11 @@
 import test from 'tape'
-import <%= repoName %> from '../index.js'
+import <%= safeSlugname %> from '../index<%= props.extension %>'
 
 test('<%= repoName %>#get', (t) => {
   t.plan(2)
 
   t.doesNotThrow(
-    <%= repoName %>.get
+    <%= safeSlugname %>.get
     , 'does not throw'
   )
 
