@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.11.0 | 2015-06-04
+* add: note in the readme that the license is in a separate file
+* fix: sample test #cleanup
+* fix: initial changelog creation
+* fix: default js now es6
+* fix: tdd scripts now watch non-js extensions
+* fix: generated readme spacing and typo errors
+* fix: badge urls for scoped modules now work
+* fix: default license text now spdx compatible
+
 ## v2.10.5 | 2015-06-02
 * internal: linter #cleanup
 * fix: keywords in package.json #oops
@@ -301,6 +311,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
