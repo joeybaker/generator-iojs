@@ -70,8 +70,8 @@ Artistic 2.0 © <% if (props.authorUrl) { %>[<%= props.authorName %>](<%= props.
 
 
 [npm-url]: https://npmjs.org/package/<%= slugname %>
-[npm-image]: https://badge.fury.io/js/<%= slugname %>.svg
-[travis-url]: https://travis-ci.org/<%= props.githubUsername %>/<%= slugname %>
-[travis-image]: https://travis-ci.org/<%= props.githubUsername %>/<%= slugname %>.svg?branch=master
-[daviddm-url]: https://david-dm.org/<%= props.githubUsername %>/<%= slugname %>.svg?theme=shields.io
-[daviddm-image]: https://david-dm.org/<%= props.githubUsername %>/<%= slugname %>
+[npm-image]: https://badge.fury.io/js/<%= escapedSlugname %>.svg
+[travis-url]: https://travis-ci.org/<%= props.githubUsername %>/<%= repoName %>
+[travis-image]: https://travis-ci.org/<%= props.githubUsername %>/<%= repoName %>.svg?branch=master
+[daviddm-url]: https://david-dm.org/<%= props.githubUsername %>/<%= repoName %>.svg?theme=shields.io
+[daviddm-image]: https://david-dm.org/<%= props.githubUsername %>/<%= repoName %>

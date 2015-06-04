@@ -52,6 +52,7 @@ module.exports = yeoman.generators.Base.extend({
       if (props.pkgName) return this.askForModuleName()
 
       this.slugname = _.deburr(props.name).split(' ').join('-')
+      this.escapedSlugname = encodeURIComponent(props.name)
       this.safeSlugname = this.slugname.replace(/-+([a-zA-Z0-9])/g, function safedTheSlugName (g) {
         return g[1].toUpperCase()
       }).replace('@', '').replace('/', '-')
