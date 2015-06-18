@@ -34,13 +34,13 @@
   "devDependencies": {
     "covert": "^1.1.0",
     "dmn": "^1.0.10",
-    "doctoc": "^0.13.0",
-    "eslint": "^0.21.2",
+    "doctoc": "^0.14.0",
+    "eslint": "^0.23.0",
     "ghooks": "^0.3.2",
     "in-publish": "^1.1.1",
     "nodemon": "^1.3.7",
     "nsp": "^1.0.1",
-    "tap-spec": "^3.0.0",
+    "tap-spec": "^4.0.0",
     "tape": "^4.0.0"
   },
   "name": "generator-iojs",
@@ -65,9 +65,9 @@
   "homepage": "https://github.com/joeybaker/generator-iojs",
   "dependencies": {
     "fullname": "^1.1.0",
-    "lodash": "^3.9.1",
+    "lodash": "^3.9.3",
     "mkdirp": "^0.5.1",
-    "npm-name": "^1.0.4",
+    "npm-name": "^1.0.5",
     "username": "^1.0.0",
     "yeoman-generator": "^0.20.1"
   },
