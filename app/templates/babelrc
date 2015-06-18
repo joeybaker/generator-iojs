@@ -1,3 +1,7 @@
 {
-  "plugins": ["closure-elimination"]
+  "plugins": [
+    "closure-elimination",
+    "undefined-to-void",
+    "runtime"
+  ]
 }

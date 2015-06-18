@@ -60,6 +60,8 @@
   "devDependencies": {<% if (props.isEs6) { %>
     "babel": "^5.2.9",
     "babel-plugin-closure-elimination": "^0.0.1",
+    "babel-plugin-undefined-to-void": "^1.1.6",
+    "babel-plugin-runtime": "^1.0.5",
     "babel-tape-runner": "^1.1.0",<% } %><% if (props.isBrowser) { %><% if (props.isEs6) { %>
     "babelify": "^6.0.2",<% } %>
     "browserify": "^9.0.8",<% } %>
