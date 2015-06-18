@@ -57,9 +57,7 @@ var path = require('path')
 
 test('iojs generator creation: defaults', function creationTest (t) {
   var promptAnswers = _.clone(defaultProptAnswers)
-    , runTests
-
-  runTests = function runTests () {
+    , runTests = function runTests () {
       var expected = _.clone(defaultExpectedFiles)
         , expectedInTest = ['test.js']
 
@@ -118,18 +116,21 @@ test('iojs generator creation: CLI only', function creationTest (t) {
   promptAnswers.isCLI = true
   promptAnswers.name = 'my-module'
 
+  /* eslint-disable no-shadow */
+  // eslint bug
   runTests = function runTests () {
-      var expected = _.clone(defaultExpectedFiles)
-        , expectedInBin = [promptAnswers.name]
-      expected.push('bin')
+    /* eslint-enable no-shadow */
+    var expected = _.clone(defaultExpectedFiles)
+      , expectedInBin = [promptAnswers.name]
+    expected.push('bin')
 
-      // assertations + the count of files we expect
-      t.plan(13 + expected.length + expectedInBin.length)
+    // assertations + the count of files we expect
+    t.plan(13 + expected.length + expectedInBin.length)
 
-      assertFilesInDir(t, testDir, expected)
-      assertFilesInDir(t, path.join(testDir, 'bin'), expectedInBin)
+    assertFilesInDir(t, testDir, expected)
+    assertFilesInDir(t, path.join(testDir, 'bin'), expectedInBin)
 
-      fs.readFile(path.join(testDir, 'package.json'), function readPackageJson (err, file) {
+    fs.readFile(path.join(testDir, 'package.json'), function readPackageJson (err, file) {
         var pkgContents = file.toString()
         t.error(err, 'should be able to read the package.json')
         t.ok(
@@ -162,7 +163,7 @@ test('iojs generator creation: CLI only', function creationTest (t) {
         )
       })
 
-      fs.readFile(path.join(testDir, 'bin', promptAnswers.name), function readPackageJson (err, file) {
+    fs.readFile(path.join(testDir, 'bin', promptAnswers.name), function readPackageJson (err, file) {
         var cliContents
         t.error(err, 'should be able to read the bin script')
         cliContents = file.toString()
@@ -177,7 +178,7 @@ test('iojs generator creation: CLI only', function creationTest (t) {
           , 'adds the license to epilog'
         )
       })
-    }
+  }
 
   helpers.run(path.join(__dirname, '..', 'app', 'index.js'))
     .inDir(testDir)
@@ -191,16 +192,19 @@ test('iojs generator creation: no es6', function creationTest (t) {
 
   promptAnswers.isEs6 = false
 
+  /* eslint-disable no-shadow */
+  // eslint bug
   runTests = function runTests () {
-      var expected = _.clone(defaultExpectedFiles)
-      expected.splice(expected.indexOf('.babelrc'), 1)
+    /* eslint-enable no-shadow */
+    var expected = _.clone(defaultExpectedFiles)
+    expected.splice(expected.indexOf('.babelrc'), 1)
 
-      // assertations + the count of files we expect
-      t.plan(9 + expected.length)
+    // assertations + the count of files we expect
+    t.plan(9 + expected.length)
 
-      assertFilesInDir(t, testDir, expected)
+    assertFilesInDir(t, testDir, expected)
 
-      fs.readFile(path.join(testDir, 'package.json'), function readPackageJson (err, file) {
+    fs.readFile(path.join(testDir, 'package.json'), function readPackageJson (err, file) {
         var pkgContents
         t.error(err, 'should be able to read the package.json')
         pkgContents = file.toString()
@@ -223,7 +227,7 @@ test('iojs generator creation: no es6', function creationTest (t) {
         )
       })
 
-      fs.readFile(path.join(testDir, '.eslintrc'), function readPackageJson (err, file) {
+    fs.readFile(path.join(testDir, '.eslintrc'), function readPackageJson (err, file) {
         var eslintrcContents
         t.error(err, 'should be able to read the .eslintrc')
         eslintrcContents = file.toString()
@@ -238,7 +242,7 @@ test('iojs generator creation: no es6', function creationTest (t) {
           , 'does not enable ecmaFeatures'
         )
       })
-    }
+  }
 
   helpers.run(path.join(__dirname, '..', 'app', 'index.js'))
     .inDir(testDir)
