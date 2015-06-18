@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.12.0 | 2015-06-18
+* add: babel-plugin for runtime, so that you don't have to manually require
+the polyfill, and so that only the necessary bits are required.
+* add: babel-plugin for undefined, so that it's always `void 0` and bad actors
+can't screw you up.
+* fix: eslint syntax
+* internal: update deps
+
 ## v2.11.0 | 2015-06-04
 * add: note in the readme that the license is in a separate file
 * fix: sample test #cleanup
@@ -311,6 +319,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
