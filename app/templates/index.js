@@ -1,5 +1,3 @@
-const get = function get (str) {
+export const get = function get (str) {
   console.log(str || 'Rainbow')
 }
-
-export get
