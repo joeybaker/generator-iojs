@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.13.0 | 2015-06-26
+* add: update eslint & eslintrc
+* fix: remove babel-plugin-eslint
+* internal: now testing babel and eslint configs
+
 ## v2.12.0 | 2015-06-18
 * add: babel-plugin for runtime, so that you don't have to manually require
 the polyfill, and so that only the necessary bits are required.
@@ -319,6 +324,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
