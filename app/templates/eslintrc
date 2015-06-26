@@ -90,7 +90,7 @@
     "no-octal-escape": 2,
     "no-proto": 2,
     "no-redeclare": 2,
-    "no-return-assign": 2,
+    "no-return-assign": [2, "except-parens"],
     "no-script-url": 2,
     "no-self-compare": 2,
     "no-sequences": 2,
@@ -246,7 +246,10 @@
         ]
       }
     ],
-    "wrap-regex": 0<% if (props.isBrowser) { %>,
+    "array-bracket-spacing": [1, "never"],
+    "wrap-regex": 0<% if (props.isEs6) { %>,
+    "constructor-super": 2,
+    "no-this-before-super": 2<% } if (props.isBrowser) { %>,
 
     "react/jsx-uses-react": 1,
     "react/jsx-uses-vars": 1,
@@ -265,6 +268,7 @@
       1,
       {
         "order": [
+          "constructor",
           "lifecycle",
           "everything-else",
           "/^on.*$$/",

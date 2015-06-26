@@ -66,7 +66,7 @@
     "browserify": "^9.0.8",<% } %>
     "dmn": "^1.0.5",
     "doctoc": "^0.13.0",
-    "eslint": "^0.20.0",<% if (props.isBrowser && props.isEs6) { %>
+    "eslint": "^0.24.0",<% if (props.isBrowser && props.isEs6) { %>
     "eslint-plugin-react": "^2.0.0",<% } %>
     "ghooks": "^0.3.2",
     "in-publish": "^1.1.1",<% if (props.isServer || props.isCLI) { %>
