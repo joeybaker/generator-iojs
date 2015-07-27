@@ -62,7 +62,7 @@ test('iojs generator creation: defaults', function creationTest (t) {
         , expectedInTest = ['test.js']
 
       // 4 assertations + the count of files we expect
-      t.plan(10 + expected.length + expectedInTest.length)
+      t.plan(12 + expected.length + expectedInTest.length)
 
       assertFilesInDir(t, testDir, expected)
       assertFilesInDir(t, path.join(testDir, 'test'), expectedInTest)
@@ -97,6 +97,16 @@ test('iojs generator creation: defaults', function creationTest (t) {
         t.ok(
            /"babel-plugin-closure-elimination":/.test(pkgContents)
           , 'includes the closure-elimination plugin'
+        )
+      })
+
+      fs.readFile(path.join(testDir, '.travis.yml'), function readTravisYml (err, file) {
+        var travisContents = file.toString()
+        t.error(err, 'should be able to read .travis.yml')
+
+        t.ok(
+          /export DISPLAY=\:99\.0; sh \-e \/etc\/init.d\/xvfb start/.test(travisContents)
+          , 'adds a before script, that starts xvfb for browser tests'
         )
       })
     }
