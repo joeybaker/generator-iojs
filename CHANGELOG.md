@@ -1,5 +1,14 @@
 # Changelog
 
+## v3.0.0 | 2015-09-01
+* change: switch out smokestack for hihat
+* change: update deps, includes seme major version bumps
+* add: only apply JSX rules when necessary
+* add: run `npm i` on rewrite
+* add: travis now starts xvfb for browser tests
+* fix: Update dotfiles for new versions
+* internal: linter #cleanup
+
 ## v2.13.0 | 2015-06-26
 * add: update eslint & eslintrc
 * fix: remove babel-plugin-eslint
@@ -324,6 +333,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
