@@ -33,7 +33,7 @@
     "note3": "travis doesn't play nicely with !#/bin/bash in the script file, so we have to explicitly set bash",
     "lint": "/bin/bash -c 'source ./scripts.sh && lint'",
     "note4": "the diff-filter option below gets all files but deleted ones",
-    "lint-staged": "git diff --diff-filter=ACMRTUXB --cached --name-only | grep '.*\\.<%= props.extension %>$' | grep -v 'node_modules' | xargs eslint --ext .js --ext <%= props.extension %>",
+    "lint-staged": "git diff --diff-filter=ACMRTUXB --cached --name-only | grep '.*\\<%= props.extension %>$' | grep -v 'node_modules' | xargs eslint --ext .js --ext <%= props.extension %>",
     "requireGitClean": "/bin/bash -c 'source ./scripts.sh && git_require_clean_work_tree'",
     "nsp": "nsp audit-package",
     "note5": "--no-verify skips the commit hook",
@@ -49,7 +49,8 @@
     "ghooks": {
       "pre-commit": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm run lint-staged",
       "pre-push": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm run dmn && npm run doctoc && npm run lint && npm test",
-      "update": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm install"
+      "post-merge": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm install",
+      "post-rewrite": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm install"
     }
   },
   "main": "index<% if (props.isEs6) { %>.es5<% } else { %><%= props.extension %><% } %>",<% if (props.isBrowser) { %>
