@@ -1,6 +1,9 @@
 {
   "plugins": [
-    "closure-elimination",
-    "undefined-to-void"
-  ]
+    "closure-elimination"
+  ],
+  "optional": [
+    "runtime"
+  ],
+  "stage": 0
 }

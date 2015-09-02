@@ -1,4 +1,5 @@
 {
+  "parser": "babel-eslint",
   "ecmaFeatures": {
     "arrowFunctions": true,
     "binaryLiterals": true,
@@ -8,7 +9,7 @@
     "destructuring": true,
     "forOf": true,
     "generators": true,
-    "modules": false,
+    "modules": true,
     "objectLiteralComputedProperties": true,
     "objectLiteralDuplicateProperties": true,
     "objectLiteralShorthandMethods": true,
@@ -19,26 +20,24 @@
     "superInFunctions": true,
     "templateStrings": true,
     "unicodeCodePointEscapes": true,
-    "globalReturn": true,
-    "jsx": true
+    "globalReturn": true
   },
   "env": {
-    "browser": true,
     "node": true,
     "es6": true
   },
   "rules": {
-    "no-comma-dangle": 2,
+    "comma-dangle": [2, "never"],
     "no-cond-assign": 2,
     "no-constant-condition": 2,
     "no-control-regex": 2,
     "no-debugger": 2,
     "no-dupe-keys": 2,
     "no-empty": 2,
-    "no-empty-class": 2,
+    "no-empty-character-class": 2,
     "no-ex-assign": 2,
     "no-extra-boolean-cast": 2,
-    "no-extra-parens": 1,
+    "no-extra-parens": 0,
     "no-extra-semi": 2,
     "no-func-assign": 2,
     "no-inner-declarations": 2,
@@ -47,7 +46,7 @@
     "no-negated-in-lhs": 2,
     "no-obj-calls": 2,
     "no-regex-spaces": 2,
-    "no-reserved-keys": 1,
+    "quote-props": [1, "consistent-as-needed"],
     "no-sparse-arrays": 2,
     "no-unreachable": 2,
     "use-isnan": 2,
@@ -86,7 +85,7 @@
     "no-octal-escape": 2,
     "no-proto": 2,
     "no-redeclare": 2,
-    "no-return-assign": 2,
+    "no-return-assign": [2, "except-parens"],
     "no-script-url": 2,
     "no-self-compare": 2,
     "no-sequences": 2,
@@ -122,7 +121,8 @@
     "no-path-concat": 2,
     "indent": [
       1,
-      2
+      2,
+      {"SwitchCase": 1}
     ],
     "brace-style": [
       1,
@@ -172,12 +172,11 @@
     "no-multiple-empty-lines": 2,
     "no-nested-ternary": 0,
     "no-new-object": 2,
-    "no-space-before-semi": 2,
+    "semi-spacing": [2, {"before": false, "after": true}],
     "no-spaced-func": 1,
     "no-ternary": 0,
     "no-trailing-spaces": 2,
     "no-underscore-dangle": 0,
-    "no-wrap-func": 2,
     "one-var": [
       1,
       {
@@ -216,7 +215,11 @@
       1,
       "always"
     ],
-    "space-in-brackets": [
+    "object-curly-spacing": [
+      1,
+      "never"
+    ],
+    "array-bracket-spacing": [
       1,
       "never"
     ],
@@ -242,6 +245,20 @@
         ]
       }
     ],
-    "wrap-regex": 0
+    "array-bracket-spacing": [1, "never"],
+    "wrap-regex": 0,
+    "constructor-super": 2,
+    "no-this-before-super": 2,
+    "require-yield": 2,
+    "prefer-spread": 1,
+    "no-useless-call": 1,
+    "no-invalid-this": 0,
+    "no-implicit-coercion": 0,
+    "no-const-assign": 2,
+    "no-class-assign": 2,
+    "init-declarations": 0,
+    "callback-return": [0, ["callback", "cb", "done", "next"]],
+    "arrow-spacing": [1, {"before": true, "after": true}],
+    "arrow-parens": 1
   }
 }
