@@ -1,5 +1,3 @@
-'use strict'
-
 var path = require('path')
   , npm = require('npm')
   , npmName = require('npm-name')
@@ -181,6 +179,7 @@ module.exports = yeoman.generators.Base.extend({
         }
 
         props.isServerAndBrowser = (props.isServer || props.isCLI) && props.isBrowser
+        props.isJSX = /jsx$/.test(props.extension)
 
         this.props = props
 
