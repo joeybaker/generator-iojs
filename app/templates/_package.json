@@ -21,8 +21,8 @@
     "test-server": "<% if (props.isEs6) { %>babel-tape-runner<% } else { %>tape<% } %> test/*<%= props.extension %> | tap-spec",
     "test": "npm run test-server && npm run test-browser",
     "tdd-server": "nodemon -x npm -i node_modules/ -e js,<%= props.extension.replace('.', '') %> -- run -s test-server",
-    "tdd-browser": "smokestack-watch test/*<%= props.extension %> <% if (props.isEs6) { %>-t babelify<% } %> | tap-spec",<% } %><% if (props.isBrowser && !props.isServer) { %>
-    "test": "browserify <% if (props.isEs6) { %>-t babelify<% } %> test/test<%= props.extension %> | tap-closer | smokestack -b chrome | tap-spec",
+    "tdd-browser": "hihat test/*<%= props.extension %> <% if (props.isEs6) { %>--transform babelify<% } %> --debug -p tap-dev-tool",<% } %><% if (props.isBrowser && !props.isServer) { %>
+    "test": "browserify <% if (props.isEs6) { %>-t babelify<% } %> test/*<%= props.extension %> | tap-closer | smokestack -b chrome | tap-spec",
     "tdd": "smokestack-watch test/*<%= props.extension %> <% if (props.isEs6) { %>-t babelify<% } %> | tap-spec",<% } %><% if (props.isServer || props.isCLI && !props.isBrowser) { %>
     "test": "<% if (props.isEs6) { %>babel-tape-runner<% } else { %>tape<% } %> test/test<%= props.extension %> | tap-spec",
     "tdd": "nodemon -x npm -i node_modules/ -e js,<%= props.extension.replace('.', '') %> -- run -s test",<% if (props.isEs6) { %>
@@ -59,22 +59,25 @@
   },<% } %>
   "devDependencies": {<% if (props.isEs6) { %>
     "babel": "^5.2.9",
+    "babel-core": "^5.8.23",
+    "babel-eslint": "^4.1.1",
     "babel-plugin-closure-elimination": "^0.0.1",
-    "babel-plugin-undefined-to-void": "^1.1.6",
+    "babel-runtime": "^5.8.20",
     "babel-tape-runner": "^1.1.0",<% } %><% if (props.isBrowser) { %><% if (props.isEs6) { %>
     "babelify": "^6.0.2",<% } %>
     "browserify": "^9.0.8",<% } %>
     "dmn": "^1.0.5",
     "doctoc": "^0.13.0",
-    "eslint": "^0.24.0",<% if (props.isBrowser && props.isEs6) { %>
-    "eslint-plugin-react": "^2.0.0",<% } %>
-    "ghooks": "^0.3.2",
+    "eslint": "^1.3.1",<% if (props.isBrowser && props.isEs6) { %>
+    "eslint-plugin-react": "^2.6.0",<% } %>
+    "ghooks": "^0.3.2",<% if (props.isBrowser) { %>
+    "hihat": "^1.2.1",<% } %>
     "in-publish": "^1.1.1",<% if (props.isServer || props.isCLI) { %>
     "nodemon": "^1.2.1",<% } %>
     "nsp": "^1.0.1",
     "sinon": "^1.12.2",<% if (props.isBrowser) { %>
     "smokestack": "^3.2.0",
-    "smokestack-watch": "^0.4.1",
+    "tap-dev-tool": "^1.3.0",
     "tap-closer": "^1.0.0",<% } %>
     "tap-spec": "^3.0.0",
     "tape": "^4.0.0"<% if (props.isCLI) { %>,
