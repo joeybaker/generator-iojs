@@ -27,7 +27,8 @@
     "ghooks": {
       "pre-commit": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm run lint",
       "pre-push": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm run dmn && npm run doctoc && npm run lint && npm test",
-      "update": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm install"
+      "post-merge": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm install",
+      "post-rewrite": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm install"
     }
   },
   "license": "Artistic-2.0",
