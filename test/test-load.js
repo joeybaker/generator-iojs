@@ -1,5 +1,3 @@
-'use strict'
-
 var test = require('tape')
   , exec = require('child_process').execFile
   , path = require('path')
@@ -10,22 +8,22 @@ var test = require('tape')
   , appPath = path.join(testDir, 'index.js')
   , eslintRcPath = path.join(testDir, '.eslintrc')
   , defaultProptAnswers = {
-      name: 'mymodule'
-      , pkgName: false
-      , description: 'awesome module'
-      , homepage: 'https://github.com'
-      , keywords: 'keyword1,keyword2,keyword3'
-      , license: 'Artistic 2.0'
-      , githubUsername: 'octocat'
-      , authorName: 'Octo Cat'
-      , authorEmail: 'octo@example.com'
-      , authorUrl: 'http://yeoman.io'
-      , isServer: true
-      , isBrowser: true
-      , isCLI: false
-      , extension: '.js'
-      , isPrivate: true
-    }
+    name: 'mymodule'
+    , pkgName: false
+    , description: 'awesome module'
+    , homepage: 'https://github.com'
+    , keywords: 'keyword1,keyword2,keyword3'
+    , license: 'Artistic 2.0'
+    , githubUsername: 'octocat'
+    , authorName: 'Octo Cat'
+    , authorEmail: 'octo@example.com'
+    , authorUrl: 'http://yeoman.io'
+    , isServer: true
+    , isBrowser: true
+    , isCLI: false
+    , extension: '.js'
+    , isPrivate: true
+  }
 
 test('iojs generator load', function generatorTest (t) {
   var runTests = function runTests () {
@@ -36,7 +34,7 @@ test('iojs generator load', function generatorTest (t) {
       , 'can be imported without blowing up'
     )
 
-    exec(eslintPath, [appPath, '-c ' + eslintRcPath], function eslintRan (err) {
+    exec(eslintPath, ['-c ' + eslintRcPath, appPath], {cwd: testDir}, function eslintRan (err) {
       t.error(err, 'eslint doesn\'t error')
     })
 

@@ -1,5 +1,3 @@
-'use strict'
-
 var path = require('path')
   , test = require('tape')
   , helpers = require('yeoman-generator').test
