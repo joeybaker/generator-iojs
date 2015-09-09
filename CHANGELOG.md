@@ -1,5 +1,8 @@
 # Changelog
 
+## v3.0.1 | 2015-09-09
+* fix: eslintrc config
+
 ## v3.0.0 | 2015-09-01
 * change: switch out smokestack for hihat
 * change: update deps, includes seme major version bumps
@@ -333,6 +336,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
