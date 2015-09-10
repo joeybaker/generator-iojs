@@ -6,16 +6,24 @@ var path = require('path')
   , getFullname = require('fullname')
   , _ = require('lodash')
   , mkdirp = require('mkdirp')
+  , updateNotifier = require('update-notifier')
+  , pkg = require('../package.json')
   , cwd = process.cwd()
 
 module.exports = yeoman.generators.Base.extend({
   init: function init () {
     var done = this.async()
-    this.pkg = require('../package.json')
+      , notifier = updateNotifier({pkg: pkg})
+
+    this.pkg = pkg
+
+    this.log(notifier.update)
+
     this.log(
-      this.yeoman +
-      '\nThe name of your project shouldn\'t contain "node" or "js" and' +
+      'The name of your project shouldn\'t contain "node" or "js" and' +
       '\nshould be a unique ID not already in use at npmjs.org.')
+
+    // init npm
     npm.load(done)
   }
 
