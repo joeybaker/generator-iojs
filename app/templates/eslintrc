@@ -27,7 +27,7 @@
   },<% } %>
   "env": {
     <% if (props.isBrowser) { %>"browser": true,
-    <% } %>"node": true,<% if (props.isEs6) { %>
+    <% } %>"node": true<% if (props.isEs6) { %>,
     "es6": true<% } %>
   },
   "rules": {
