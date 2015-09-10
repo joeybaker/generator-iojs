@@ -19,31 +19,31 @@ module.exports = yeoman.generators.Base.extend({
     npm.load(done)
   }
 
-  , askForModuleName: function askForModuleName () {
+, askForModuleName: function askForModuleName () {
     var done = this.async()
       , prompts
 
     prompts = [{
       name: 'name'
       , message: 'Module Name'
-      , 'default': path.basename(cwd)
+      , default: path.basename(cwd)
     }
     , {
       type: 'confirm'
       , name: 'pkgName'
       , message: 'The name above already exists on npm, choose another?'
-      , 'default': true
+      , default: true
       , when: function when (answers) {
-        var whenDone = this.async()
+          var whenDone = this.async()
 
-        npmName(answers.name, function gotNPMName (err, available) {
-          if (err || !available){
-            return void whenDone(true)
-          }
+          npmName(answers.name, function gotNPMName (err, available) {
+            if (err || !available){
+              return void whenDone(true)
+            }
 
-          whenDone(false)
-        })
-      }
+            whenDone(false)
+          })
+        }
     }]
 
     this.prompt(prompts, function onPrompt (props) {
@@ -59,7 +59,7 @@ module.exports = yeoman.generators.Base.extend({
     }.bind(this))
   }
 
-  , askFor: function askFor () {
+, askFor: function askFor () {
     var done = this.async()
       , fullname = ''
       , prompts
@@ -71,7 +71,7 @@ module.exports = yeoman.generators.Base.extend({
       prompts = [{
         name: 'description'
         , message: 'Description'
-        , 'default': 'The best module ever.'
+        , default: 'The best module ever.'
       }
       , {
         name: 'homepage'
@@ -84,69 +84,69 @@ module.exports = yeoman.generators.Base.extend({
       , {
         name: 'license'
         , message: 'License'
-        , 'default': 'Artistic-2.0'
+        , default: 'Artistic-2.0'
         , store: true
         // TODO: present options from https://spdx.org/licenses/
       }
       , {
         name: 'githubUsername'
         , message: 'GitHub username'
-        , 'default': getUsername.sync()
+        , default: getUsername.sync()
         , store: true
       }
       , {
         name: 'authorName'
         , message: 'Author\'s Name'
-        , 'default': npm.config.get('init.author.name') || fullname
+        , default: npm.config.get('init.author.name') || fullname
         , store: true
       }
       , {
         name: 'authorEmail'
         , message: 'Author\'s Email'
-        , 'default': npm.config.get('init.author.email')
+        , default: npm.config.get('init.author.email')
         , store: true
       }
       , {
         name: 'authorUrl'
         , message: 'Author\'s Homepage'
-        , 'default': npm.config.get('init.author.site')
+        , default: npm.config.get('init.author.site')
         , store: true
       }
       , {
         name: 'isEs6'
         , message: 'Will you use ES6 or JSX?'
         , type: 'confirm'
-        , 'default': true
+        , default: true
       }
       , {
         name: 'isServer'
         , message: 'Is this a node module? (Will it run on the server)'
         , type: 'confirm'
-        , 'default': true
+        , default: true
       }
       , {
         name: 'isBrowser'
         , message: 'Will this run in the browser?'
         , type: 'confirm'
-        , 'default': true
+        , default: true
       }
       , {
         name: 'isCLI'
         , message: 'Will have a CLI API?'
         , type: 'confirm'
-        , 'default': false
+        , default: false
       }
       , {
         name: 'extension'
         , message: 'Default extension?'
-        , 'default': '.js'
+        , default: '.js'
       }
       , {
         name: 'isPrivate'
         , message: 'Is this a private module?'
         , store: true
         , type: 'confirm'
-        , 'default': true
+        , default: true
       }]
 
       this.currentYear = (new Date()).getFullYear()
@@ -188,7 +188,7 @@ module.exports = yeoman.generators.Base.extend({
     }.bind(this))
   }
 
-  , app: function app () {
+, app: function app () {
     this.config.save()
     this.copy('editorconfig', '.editorconfig')
     this.copy('gitignore', '.gitignore')
@@ -209,7 +209,7 @@ module.exports = yeoman.generators.Base.extend({
     this.template('LICENSE', 'LICENSE')
   }
 
-  , projectfiles: function projectfiles () {
+, projectfiles: function projectfiles () {
     this.template('index.js', 'index' + this.props.extension)
     mkdirp(path.join(cwd, 'test'))
     this.template('test/test.js', 'test/test' + this.props.extension)
@@ -219,7 +219,7 @@ module.exports = yeoman.generators.Base.extend({
     }
   }
 
-  , install: function install () {
+, install: function install () {
     this.installDependencies({
       bower: false
       , skipInstall: this.options['skip-install']
