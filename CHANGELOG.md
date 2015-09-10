@@ -1,5 +1,8 @@
 # Changelog
 
+## v3.1.1 | 2015-09-10
+* fix: eslint for server-only packages
+
 ## v3.1.0 | 2015-09-10
 * add: update notifier to notify users when an updated version of the
 generator is avaliable. fixes #37
@@ -340,6 +343,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
