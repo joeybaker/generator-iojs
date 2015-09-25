@@ -1,5 +1,8 @@
 # Changelog
 
+## v3.2.0 | 2015-09-25
+* add: run travis tests against node v4
+
 ## v3.1.1 | 2015-09-10
 * fix: eslint for server-only packages
 
@@ -343,6 +346,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
