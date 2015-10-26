@@ -1,5 +1,11 @@
 # Changelog
 
+## v3.3.0 | 2015-10-26
+* add: gitignore eslint cache
+* add: lint script can now run on individual files
+* fix: scripts: full path to eslint b/c npm is weird
+* fix: linting staged non-js files now works
+
 ## v3.2.0 | 2015-09-25
 * add: run travis tests against node v4
 
@@ -346,6 +352,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
