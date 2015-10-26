@@ -31,7 +31,7 @@
     "prepublish": "in-publish && npm prune && npm run -s gitPush || in-install",
     "note2": "eslint will always pull from the global eslintrc file, disable that so that we're only looking at the local",
     "note3": "travis doesn't play nicely with !#/bin/bash in the script file, so we have to explicitly set bash",
-    "lint": "/bin/bash -c 'source ./scripts.sh && lint'",
+    "lint": "f () { /bin/bash -c \"source ./scripts.sh && lint $@\"; }; f",
     "note4": "the diff-filter option below gets all files but deleted ones",
     "lint-staged": "git diff --diff-filter=ACMRTUXB --cached --name-only | grep '.*\\<%= props.extension %>$' | grep -v 'node_modules' | xargs eslint --ext .js --ext <%= props.extension %>",
     "requireGitClean": "/bin/bash -c 'source ./scripts.sh && git_require_clean_work_tree'",
