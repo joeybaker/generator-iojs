@@ -1,5 +1,8 @@
 # Changelog
 
+## v3.3.1 | 2015-10-26
+* fix #39: only run npm install if necessary
+
 ## v3.3.0 | 2015-10-26
 * add: gitignore eslint cache
 * add: lint script can now run on individual files
@@ -352,6 +355,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
