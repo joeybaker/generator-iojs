@@ -33,7 +33,7 @@
     "note3": "travis doesn't play nicely with !#/bin/bash in the script file, so we have to explicitly set bash",
     "lint": "f () { /bin/bash -c \"source ./scripts.sh && lint $@\"; }; f",
     "note4": "the diff-filter option below gets all files but deleted ones",
-    "lint-staged": "git diff --diff-filter=ACMRTUXB --cached --name-only | grep '.*\\<%= props.extension %>$' | grep -v 'node_modules' | xargs eslint --ext .js --ext <%= props.extension %>",
+    "lint-staged": "git diff --diff-filter=ACMRTUXB --cached --name-only | grep '.*\\<%= props.extension %>\\|\\.js$' | grep -v 'node_modules' | xargs npm run -s lint",
     "requireGitClean": "/bin/bash -c 'source ./scripts.sh && git_require_clean_work_tree'",
     "nsp": "nsp audit-package",
     "note5": "--no-verify skips the commit hook",
