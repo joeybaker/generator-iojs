@@ -4,7 +4,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 function lint(){
-  eslint --no-eslintrc --config .eslintrc "${@-.}" --ext .jsx --ext .js --ext .es6
+  ./node_modules/.bin/eslint "${@-.}" --ext .jsx --ext .js --ext .es6 --cache
 }
 
 function git_require_clean_work_tree(){
