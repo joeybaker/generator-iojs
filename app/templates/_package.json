@@ -42,6 +42,7 @@
     "gitPull": "git pull --rebase origin master",
     "gitPush": "git push --follow-tags --no-verify && git push --tags --no-verify",<% if (props.isEs6) { %>
     "build-es5": "NODE_ENV=production && babel index<%= props.extension %> > index.es5",<% } %>
+    "install-deps": "/bin/bash -c 'source ./scripts.sh && install_if_needed && npm prune'",
     "release": "f () { source ./scripts.sh && npm run requireGitClean && npm run gitPull && npm run dmn && npm run doctoc <% if (props.isEs6) { %>&& npm run build-es5 <% } %>&& npm run lint && npm test && npm_release <%= publicness %> $@; }; f"
   },
   "config": {
@@ -49,8 +50,8 @@
     "ghooks": {
       "pre-commit": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm run lint-staged",
       "pre-push": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm run dmn && npm run doctoc && npm run lint && npm test",
-      "post-merge": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm install",
-      "post-rewrite": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm install"
+      "post-merge": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm run -s install-deps",
+      "post-rewrite": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm run -s install-deps"
     }
   },
   "main": "index<% if (props.isEs6) { %>.es5<% } else { %><%= props.extension %><% } %>",<% if (props.isBrowser) { %>
