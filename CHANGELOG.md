@@ -1,5 +1,10 @@
 # Changelog
 
+## v4.0.0 | 2015-12-26
+* change: only test current versions of node
+* add: silence nodemon output
+* internal: #cleanup test for w/ some es6
+
 ## v3.3.1 | 2015-10-26
 * fix #39: only run npm install if necessary
 
@@ -355,6 +360,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
