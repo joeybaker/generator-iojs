@@ -20,12 +20,12 @@
     "test-browser": "browserify <% if (props.isEs6) { %>-t babelify<% } %> test/test<%= props.extension %> | tap-closer | smokestack -b chrome | tap-spec",
     "test-server": "<% if (props.isEs6) { %>babel-tape-runner<% } else { %>tape<% } %> test/*<%= props.extension %> | tap-spec",
     "test": "npm run test-server && npm run test-browser",
-    "tdd-server": "nodemon -x npm -i node_modules/ -e js,<%= props.extension.replace('.', '') %> -- run -s test-server",
+    "tdd-server": "nodemon -q -x npm -i node_modules/ -e js,<%= props.extension.replace('.', '') %> -- run -s test-server",
     "tdd-browser": "hihat test/*<%= props.extension %> <% if (props.isEs6) { %>--transform babelify<% } %> --debug -p tap-dev-tool",<% } %><% if (props.isBrowser && !props.isServer) { %>
     "test": "browserify <% if (props.isEs6) { %>-t babelify<% } %> test/*<%= props.extension %> | tap-closer | smokestack -b chrome | tap-spec",
     "tdd": "smokestack-watch test/*<%= props.extension %> <% if (props.isEs6) { %>-t babelify<% } %> | tap-spec",<% } %><% if (props.isServer || props.isCLI && !props.isBrowser) { %>
     "test": "<% if (props.isEs6) { %>babel-tape-runner<% } else { %>tape<% } %> test/test<%= props.extension %> | tap-spec",
-    "tdd": "nodemon -x npm -i node_modules/ -e js,<%= props.extension.replace('.', '') %> -- run -s test",<% if (props.isEs6) { %>
+    "tdd": "nodemon -q -x npm -i node_modules/ -e js,<%= props.extension.replace('.', '') %> -- run -s test",<% if (props.isEs6) { %>
     "watch": "babel index.js --watch --out-file index.es5",<% } %><% } %>
     "note1": "we can't have nice things. prepublish also runs on npm install https://github.com/npm/npm/issues/6394 in-publish hacks around this",
     "prepublish": "in-publish && npm prune && npm run -s gitPush || in-install",

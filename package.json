@@ -6,7 +6,7 @@
   "scripts": {
     "note0": "I dunno why, but tap-spec causes the tests to fail",
     "test": "tape test/*.js",
-    "tdd": "nodemon -x npm -i node_modules/ -i test/temp/ -e js,json -- test",
+    "tdd": "nodemon -q -x npm -i node_modules/ -i test/temp/ -e js,json -- test",
     "note1": "we can't have nice things. prepublish also runs on npm install https://github.com/npm/npm/issues/6394 in-publish hacks around this",
     "prepublish": "in-publish && npm prune && npm run gitPush || in-install",
     "note2": "eslint will always pull from the global eslintrc file, disable that so that we're only looking at the local",
