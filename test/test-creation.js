@@ -47,7 +47,6 @@ const defaultExpectedFiles = [
 const assertFilesInDir = function assertFilesInDir (t, dir, expectedFiles, callback) {
   glob('**/*', {cwd: dir, dot: true}, function readFilesInDir (err, files) {
     t.error(err, t.name + ' should be able to read ' + dir)
-    console.log(files)
 
     expectedFiles.forEach(function forEachExpectedFile (file) {
       t.ok(
