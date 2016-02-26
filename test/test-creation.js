@@ -4,6 +4,7 @@ const helpers = require('yeoman-generator').test
 const fs = require('fs')
 const testDir = path.join(__dirname, 'temp')
 const _ = require('lodash')
+const glob = require('glob')
 
 const defaultProptAnswers = {
   name: 'mymodule'
@@ -33,7 +34,9 @@ const defaultExpectedFiles = [
   , '.npmrc'
   , '.travis.yml'
   , 'CHANGELOG.md'
-  , 'CONTRIBUTING.md'
+  , '.github/CONTRIBUTING.md'
+  , '.github/ISSUE_TEMPLATE.md'
+  , '.github/PULL_REQUEST_TEMPLATE.md'
   , 'LICENSE'
   , 'README.md'
   , 'index.js'
@@ -42,8 +45,9 @@ const defaultExpectedFiles = [
 ]
 
 const assertFilesInDir = function assertFilesInDir (t, dir, expectedFiles, callback) {
-  fs.readdir(dir, function readFilesInDir (err, files) {
+  glob('**/*', {cwd: dir, dot: true}, function readFilesInDir (err, files) {
     t.error(err, t.name + ' should be able to read ' + dir)
+    console.log(files)
 
     expectedFiles.forEach(function forEachExpectedFile (file) {
       t.ok(

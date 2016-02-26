@@ -212,7 +212,9 @@ module.exports = yeoman.generators.Base.extend({
     this.template('npmignore', '.npmignore')
     this.template('README.md', 'README.md')
     this.template('_package.json', 'package.json')
-    this.template('CONTRIBUTING.md', 'CONTRIBUTING.md')
+    this.template('CONTRIBUTING.md', '.github/CONTRIBUTING.md')
+    this.template('ISSUE_TEMPLATE.md', '.github/ISSUE_TEMPLATE.md')
+    this.template('PULL_REQUEST_TEMPLATE.md', '.github/PULL_REQUEST_TEMPLATE.md')
     this.template('CHANGELOG.md', 'CHANGELOG.md')
     this.template('LICENSE', 'LICENSE')
   }
