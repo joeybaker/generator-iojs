@@ -1,5 +1,9 @@
 # Changelog
 
+## v4.1.0 | 2016-02-25
+* add: github issue and PR templates
+* build: install glob as a dev dep
+
 ## v4.0.0 | 2015-12-26
 * change: only test current versions of node
 * add: silence nodemon output
@@ -360,6 +364,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
