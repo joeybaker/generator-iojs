@@ -29,6 +29,7 @@ const defaultExpectedFiles = [
   , '.babelrc'
   , '.editorconfig'
   , '.eslintrc'
+  , '.eslintignore'
   , '.gitignore'
   , '.npmignore'
   , '.npmrc'

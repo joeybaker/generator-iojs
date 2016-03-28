@@ -200,6 +200,7 @@ module.exports = yeoman.generators.Base.extend({
     this.config.save()
     this.copy('editorconfig', '.editorconfig')
     this.copy('gitignore', '.gitignore')
+    this.copy('eslintignore', '.eslintignore')
     this.copy('npmrc', '.npmrc')
     this.copy('scripts.sh', 'scripts.sh')
 
