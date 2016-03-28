@@ -1,5 +1,10 @@
 # Changelog
 
+## v4.2.0 | 2016-03-28
+* Add: a pile of module updates; unifiy on .js ext
+* Add: eslintignore
+* Fix: CLI: better version detection
+
 ## v4.1.0 | 2016-02-25
 * add: github issue and PR templates
 * build: install glob as a dev dep
@@ -364,6 +369,7 @@ Using this across several projects already. It's stable enough to 1.0
 
 ### 0.0.0
 Init
+
 
 
 
