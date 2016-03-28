@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 
-var argv = require('yargs')<% if (props.description) { %>
+const pkg = require('../package.json')
+const path = require('path')
+const argv = require('yargs')<% if (props.description) { %>
   .usage('<%= props.description %>')<% } %>
   .help('h')
   .alias('h', 'help')
   .epilog('License: <%= props.license %>')
-  .version(require('../package.json').version)
+  .version(pkg.version)
   .showHelpOnFail(false, 'Specify --help for available options')
   .argv
 
-require('../index.es5')(argv)
+require(path.join(__dirname, '..', pkg.main))(argv)
