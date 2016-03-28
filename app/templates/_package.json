@@ -18,32 +18,32 @@
   "scripts": {<% if (props.isServer) { %>
     "start": "<% if (props.isEs6) { %>babel-node<% } else { %>node<% } %> index<%= props.extension %>",<% } %><% if (props.isServerAndBrowser) { %>
     "test-browser": "browserify <% if (props.isEs6) { %>-t babelify<% } %> test/test<%= props.extension %> | tap-closer | smokestack -b chrome | tap-spec",
-    "test-server": "<% if (props.isEs6) { %>babel-tape-runner<% } else { %>tape<% } %> test/*<%= props.extension %> | tap-spec",
+    "test-server": "<% if (props.isEs6) { %>tape -r babel/register<% } else { %>tape<% } %> test/*<%= props.extension %> | tap-spec",
     "test": "npm run test-server && npm run test-browser",
     "tdd-server": "nodemon -q -x npm -i node_modules/ -e js,<%= props.extension.replace('.', '') %> -- run -s test-server",
     "tdd-browser": "hihat test/*<%= props.extension %> <% if (props.isEs6) { %>--transform babelify<% } %> --debug -p tap-dev-tool",<% } %><% if (props.isBrowser && !props.isServer) { %>
     "test": "browserify <% if (props.isEs6) { %>-t babelify<% } %> test/*<%= props.extension %> | tap-closer | smokestack -b chrome | tap-spec",
     "tdd": "smokestack-watch test/*<%= props.extension %> <% if (props.isEs6) { %>-t babelify<% } %> | tap-spec",<% } %><% if (props.isServer || props.isCLI && !props.isBrowser) { %>
-    "test": "<% if (props.isEs6) { %>babel-tape-runner<% } else { %>tape<% } %> test/test<%= props.extension %> | tap-spec",
+    "test": "<% if (props.isEs6) { %>tape -r babel/register<% } else { %>tape<% } %> test/test<%= props.extension %> | tap-spec",
     "tdd": "nodemon -q -x npm -i node_modules/ -e js,<%= props.extension.replace('.', '') %> -- run -s test",<% if (props.isEs6) { %>
-    "watch": "babel index.js --watch --out-file index.es5",<% } %><% } %>
+    "watch": "babel src --watch --out-dir dist",<% } %><% } %>
     "note1": "we can't have nice things. prepublish also runs on npm install https://github.com/npm/npm/issues/6394 in-publish hacks around this",
     "prepublish": "in-publish && npm prune && npm run -s gitPush || in-install",
     "note2": "eslint will always pull from the global eslintrc file, disable that so that we're only looking at the local",
     "note3": "travis doesn't play nicely with !#/bin/bash in the script file, so we have to explicitly set bash",
     "lint": "f () { /bin/bash -c \"source ./scripts.sh && lint $@\"; }; f",
     "note4": "the diff-filter option below gets all files but deleted ones",
-    "lint-staged": "git diff --diff-filter=ACMRTUXB --cached --name-only | grep '.*\\<%= props.extension %>\\|\\.js$' | grep -v 'node_modules' | xargs npm run -s lint",
+    "lint-staged": "git diff --diff-filter=ACMRTUXB --cached --name-only | grep '.*\\<%= props.extension %>$\\|\\.js$' | grep -v 'node_modules' | xargs npm run -s lint",
     "requireGitClean": "/bin/bash -c 'source ./scripts.sh && git_require_clean_work_tree'",
-    "nsp": "nsp audit-package",
+    "nsp": "echo 'checking for insecure node modules'; nsp check",
     "note5": "--no-verify skips the commit hook",
     "dmn": "dmn gen -f . && if [[ $(git diff --shortstat 2> /dev/null | tail -n1) != '' ]]; then git add .npmignore && git commit --no-verify -m'update npmignore'; fi",
-    "doctoc": "doctoc README.md && if [ -f CONTRIBUTING.md ]; then doctoc CONTRIBUTING.md; fi && if [[ $(git diff --shortstat -- README.md 2> /dev/null | tail -n1) != '' || $(git diff --shortstat -- CONTRIBUTING.md 2> /dev/null | tail -n1) != '' ]]; then git add README.md CONTRIBUTING.md && git commit --no-verify -m'table of contents update'; fi",
+    "doctoc": "doctoc README.md && if [ -f .github/CONTRIBUTING.md ]; then doctoc .github/CONTRIBUTING.md; fi && if [[ $(git diff --shortstat -- README.md 2> /dev/null | tail -n1) != '' || $(git diff --shortstat -- .github/CONTRIBUTING.md 2> /dev/null | tail -n1) != '' ]]; then git add README.md .github/CONTRIBUTING.md && git commit --no-verify -m'table of contents update'; fi",
     "gitPull": "git pull --rebase origin master",
     "gitPush": "git push --follow-tags --no-verify && git push --tags --no-verify",<% if (props.isEs6) { %>
-    "build-es5": "NODE_ENV=production && babel index<%= props.extension %> > index.es5",<% } %>
+    "build": "NODE_ENV=production && babel src --out-dir=dist",<% } %>
     "install-deps": "/bin/bash -c 'source ./scripts.sh && install_if_needed && npm prune'",
-    "release": "f () { source ./scripts.sh && npm run requireGitClean && npm run gitPull && npm run dmn && npm run doctoc <% if (props.isEs6) { %>&& npm run build-es5 <% } %>&& npm run lint && npm test && npm_release <%= publicness %> $@; }; f"
+    "release": "f () { source ./scripts.sh && npm run requireGitClean && npm run gitPull && npm run dmn && npm run doctoc <% if (props.isEs6) { %>&& npm run build <% } %>&& npm run lint && npm test && npm_release <%= publicness %> $@; }; f"
   },
   "config": {
     "notes": "important to correct the path of npm so that the git hook doesn't error",
@@ -54,35 +54,34 @@
       "post-rewrite": "PATH=$PATH:/usr/local/bin:/usr/local/sbin && npm run -s install-deps"
     }
   },
-  "main": "index<% if (props.isEs6) { %>.es5<% } else { %><%= props.extension %><% } %>",<% if (props.isBrowser) { %>
-  "browser": "index<% if (props.isEs6) { %>.es5<% } else { %><%= props.extension %><% } %>",<% } %><% if (props.isCLI) { %>
+  "main": "index<% if (props.isEs6) { %>.js<% } else { %><%= props.extension %><% } %>",<% if (props.isBrowser) { %>
+  "browser": "index<% if (props.isEs6) { %>.js<% } else { %><%= props.extension %><% } %>",<% } %><% if (props.isCLI) { %>
   "bin": {
     "<%= repoName %>": "bin/<%= repoName %>"
   },<% } %>
   "devDependencies": {<% if (props.isEs6) { %>
-    "babel": "^5.2.9",
-    "babel-core": "^5.8.23",
-    "babel-eslint": "^4.1.1",
-    "babel-plugin-closure-elimination": "^0.0.1",
-    "babel-runtime": "^5.8.20",
-    "babel-tape-runner": "^1.1.0",<% } %><% if (props.isBrowser) { %><% if (props.isEs6) { %>
+    "babel": "^5.8.35",
+    "babel-core": "^5.8.35",
+    "babel-eslint": "^5.0.0",
+    "babel-plugin-closure-elimination": "^0.0.2",
+    "babel-runtime": "^5.8.20",<% } %><% if (props.isBrowser) { %><% if (props.isEs6) { %>
     "babelify": "^6.0.2",<% } %>
-    "browserify": "^9.0.8",<% } %>
+    "browserify": "^13.0.0",<% } %>
     "dmn": "^1.0.5",
-    "doctoc": "^0.13.0",
-    "eslint": "^1.3.1",<% if (props.isBrowser && props.isEs6) { %>
+    "doctoc": "^1.0.0",
+    "eslint": "^2.2.0",<% if (props.isBrowser && props.isEs6) { %>
     "eslint-plugin-react": "^2.6.0",<% } %>
-    "ghooks": "^0.3.2",<% if (props.isBrowser) { %>
+    "ghooks": "^1.0.3",<% if (props.isBrowser) { %>
     "hihat": "^1.2.1",<% } %>
-    "in-publish": "^1.1.1",<% if (props.isServer || props.isCLI) { %>
+    "in-publish": "^2.0.0",<% if (props.isServer || props.isCLI) { %>
     "nodemon": "^1.2.1",<% } %>
-    "nsp": "^1.0.1",
+    "nsp": "^2.2.0",
     "sinon": "^1.12.2",<% if (props.isBrowser) { %>
     "smokestack": "^3.2.0",
     "tap-dev-tool": "^1.3.0",
     "tap-closer": "^1.0.0",<% } %>
-    "tap-spec": "^3.0.0",
+    "tap-spec": "^4.1.1",
     "tape": "^4.0.0"<% if (props.isCLI) { %>,
-    "yargs": "^3.9.1"<% } %>
+    "yargs": "^4.2.0"<% } %>
   }
 }
